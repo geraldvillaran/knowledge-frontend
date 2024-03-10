@@ -8,26 +8,26 @@ import { setDefaultSettings } from '@fuse/core/FuseSettings/fuseSettingsSlice';
  */
 export const changeLanguage =
 	(languageId: string): AppThunk =>
-	async (dispatch, getState) => {
-		const AppState = getState();
-		const { direction } = AppState.fuseSettings.defaults;
+		async (dispatch, getState) => {
+			const AppState = getState();
+			const { direction } = AppState.fuseSettings.defaults;
 
-		const newLangDirection = i18n.dir(languageId);
+			const newLangDirection = i18n.dir(languageId);
 
-		/*
-		If necessary, change theme direction
-		 */
-		if (newLangDirection !== direction) {
-			await dispatch(setDefaultSettings({ direction: newLangDirection }));
-		}
+			/*
+			If necessary, change theme direction
+			 */
+			if (newLangDirection !== direction) {
+				await dispatch(setDefaultSettings({ direction: newLangDirection }));
+			}
 
-		/*
-		Change Language
-		 */
-		return i18n.changeLanguage(languageId).then(() => {
-			dispatch(i18nSlice.actions.languageChanged(languageId));
-		});
-	};
+			/*
+			Change Language
+			 */
+			return i18n.changeLanguage(languageId).then(() => {
+				dispatch(i18nSlice.actions.languageChanged(languageId));
+			});
+		};
 
 /**
  * The type definition for a language object.
@@ -55,8 +55,8 @@ export const i18nSlice = createSlice({
 		language: i18n.options.lng,
 		languages: [
 			{ id: 'en', title: 'English', flag: 'US' },
-			{ id: 'tr', title: 'Turkish', flag: 'TR' },
-			{ id: 'ar', title: 'Arabic', flag: 'SA' }
+			// { id: 'tr', title: 'Turkish', flag: 'TR' },
+			// { id: 'ar', title: 'Arabic', flag: 'SA' }
 		]
 	} as I18nState,
 	reducers: {
