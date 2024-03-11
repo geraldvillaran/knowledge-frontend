@@ -5,6 +5,7 @@ import { useAppDispatch } from 'app/store/hooks';
 import apiService from 'app/store/apiService';
 import ExtendedMockAdapter from './ExtendedMockAdapter';
 import { authApiMocks } from './api/auth-api';
+import { academyApiMocks } from './api/academy-api';
 import { fileManagerApiMocks } from './api/file-manager-api';
 
 const mockAdapterOptions = {
@@ -29,6 +30,7 @@ function MockAdapterProvider(props: MockAdapterProviderProps) {
 		const setupAllMocks = () => {
 			[
 				authApiMocks,
+				academyApiMocks,
 				fileManagerApiMocks
 			].forEach((mockSetup) => {
 				mockSetup(mock);

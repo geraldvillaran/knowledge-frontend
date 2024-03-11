@@ -21,12 +21,21 @@ const navigationConfig: FuseNavItemType[] = [
 		// translate: 'APPLICATIONS',
 		children: [
 			{
+				id: 'apps.example',
+				title: 'Example',
+				type: 'item',
+				icon: 'heroicons-outline:star',
+				// url: '/apps/academy',
+				url: 'example',
+				// translate: 'SUMMARIZER'
+			},
+			{
 				id: 'apps.academy',
-				title: 'Summarizer',
+				title: 'Academy',
 				type: 'item',
 				icon: 'heroicons-outline:book-open',
 				// url: '/apps/academy',
-				url: 'example',
+				url: '/apps/academy',
 				// translate: 'SUMMARIZER'
 			}
 		]
