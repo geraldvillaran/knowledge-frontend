@@ -5,6 +5,7 @@ import { useAppDispatch } from 'app/store/hooks';
 import apiService from 'app/store/apiService';
 import ExtendedMockAdapter from './ExtendedMockAdapter';
 import { authApiMocks } from './api/auth-api';
+import { fileManagerApiMocks } from './api/file-manager-api';
 
 const mockAdapterOptions = {
 	delayResponse: 0
@@ -26,7 +27,10 @@ function MockAdapterProvider(props: MockAdapterProviderProps) {
 	const isInitialMount = useRef(true);
 	useEffect(() => {
 		const setupAllMocks = () => {
-			[authApiMocks].forEach((mockSetup) => {
+			[
+				authApiMocks,
+				fileManagerApiMocks
+			].forEach((mockSetup) => {
 				mockSetup(mock);
 			});
 		};

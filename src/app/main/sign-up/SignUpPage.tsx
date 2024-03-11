@@ -59,7 +59,7 @@ function SignUpPage() {
 						</Link>
 					</div>
 
-					<Tabs
+					{/* <Tabs
 						value={_.findIndex(tabs, { id: selectedTabId })}
 						variant="fullWidth"
 						className="w-full mt-24 mb-32"
@@ -80,7 +80,7 @@ function SignUpPage() {
 								label={item.title}
 							/>
 						))}
-					</Tabs>
+					</Tabs> */}
 
 					{selectedTabId === 'jwt' && <JwtSignUpTab />}
 					{selectedTabId === 'firebase' && <FirebaseSignUpTab />}

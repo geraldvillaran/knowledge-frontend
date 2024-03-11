@@ -18,7 +18,7 @@ const navigationConfig: FuseNavItemType[] = [
 		subtitle: 'LLM-powered applications',
 		type: 'group',
 		icon: 'heroicons-outline:cube',
-		translate: 'APPLICATIONS',
+		// translate: 'APPLICATIONS',
 		children: [
 			{
 				id: 'apps.academy',
@@ -27,10 +27,30 @@ const navigationConfig: FuseNavItemType[] = [
 				icon: 'heroicons-outline:book-open',
 				// url: '/apps/academy',
 				url: 'example',
-				translate: 'SUMMARIZER'
+				// translate: 'SUMMARIZER'
 			}
 		]
+	},
+	{
+		id: 'utils',
+		title: 'Utilities',
+		subtitle: 'Platform tools and utilities',
+		type: 'group',
+		icon: 'heroicons-outline:cube',
+		// translate: 'UTILITIES',
+		children: [
+			{
+				id: 'apps.file-manager',
+				title: 'File Manager',
+				type: 'item',
+				icon: 'heroicons-outline:cloud',
+				url: '/apps/file-manager',
+				end: true,
+				// translate: 'FILE_MANAGER'
+			},
+		]
 	}
+
 ];
 
 export default navigationConfig;

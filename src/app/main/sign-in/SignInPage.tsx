@@ -63,16 +63,16 @@ function SignInPage() {
 						</Link>
 					</div>
 
-					<Alert
+					{/* <Alert
 						icon={false}
 						severity="info"
 						className="mt-24 px-16 text-13 leading-relaxed"
 					>
 						You are browsing <b>Fuse React Demo</b>. Click on the "Sign in" button to access the Demo and
 						Documentation.
-					</Alert>
+					</Alert> */}
 
-					<Tabs
+					{/* <Tabs
 						value={_.findIndex(tabs, { id: selectedTabId })}
 						variant="fullWidth"
 						className="w-full mt-24 mb-32"
@@ -93,7 +93,7 @@ function SignInPage() {
 								label={item.title}
 							/>
 						))}
-					</Tabs>
+					</Tabs> */}
 
 					{selectedTabId === 'jwt' && <JwtLoginTab />}
 					{selectedTabId === 'firebase' && <FirebaseSignInTab />}
@@ -219,8 +219,7 @@ function SignInPage() {
 						<div>our community</div>
 					</div>
 					<div className="mt-24 text-lg leading-6 tracking-tight text-gray-400">
-						Fuse helps developers to build organized and well coded dashboards full of beautiful and rich
-						modules. Join us and start building your application today.
+						Our platform empowers legal professionals to utilize AI feature-rich modules. Join us and start building your AI-powered legal applications today.
 					</div>
 					<div className="mt-32 flex items-center">
 						<AvatarGroup
