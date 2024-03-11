@@ -13,12 +13,23 @@ i18next.addResourceBundle('ar', 'navigation', ar);
  */
 const navigationConfig: FuseNavItemType[] = [
 	{
-		id: 'example-component',
-		title: 'Example',
-		translate: 'EXAMPLE',
-		type: 'item',
-		icon: 'heroicons-outline:star',
-		url: 'example'
+		id: 'apps',
+		title: 'Applications',
+		subtitle: 'LLM-powered applications',
+		type: 'group',
+		icon: 'heroicons-outline:cube',
+		translate: 'APPLICATIONS',
+		children: [
+			{
+				id: 'apps.academy',
+				title: 'Summarizer',
+				type: 'item',
+				icon: 'heroicons-outline:book-open',
+				// url: '/apps/academy',
+				url: 'example',
+				translate: 'SUMMARIZER'
+			}
+		]
 	}
 ];
 
