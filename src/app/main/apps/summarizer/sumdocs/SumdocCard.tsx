@@ -5,23 +5,23 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { lighten } from '@mui/material/styles';
-import CourseInfo from '../CourseInfo';
-import CourseProgress from '../CourseProgress';
-import { Course } from '../SummarizerApi';
+import SumdocInfo from '../SumdocInfo';
+import SumdocProgress from '../SumdocProgress';
+import { Sumdoc } from '../SummarizerApi';
 
-type CourseCardProps = {
-	course: Course;
+type SumdocCardProps = {
+	sumdoc: Sumdoc;
 };
 
 /**
- * The CourseCard component.
+ * The SumdocCard component.
  */
-function CourseCard(props: CourseCardProps) {
-	const { course } = props;
+function SumdocCard(props: SumdocCardProps) {
+	const { sumdoc } = props;
 
 	function buttonStatus() {
-		switch (course.activeStep) {
-			case course.totalSteps:
+		switch (sumdoc.activeStep) {
+			case sumdoc.totalSteps:
 				return 'Completed';
 			case 0:
 				return 'Start';
@@ -33,9 +33,9 @@ function CourseCard(props: CourseCardProps) {
 	return (
 		<Card className="flex flex-col h-384 shadow">
 			<CardContent className="flex flex-col flex-auto p-24">
-				<CourseInfo course={course} />
+				<SumdocInfo sumdoc={sumdoc} />
 			</CardContent>
-			<CourseProgress course={course} />
+			<SumdocProgress sumdoc={sumdoc} />
 			<CardActions
 				className="items-center justify-end py-16 px-24"
 				sx={{
@@ -46,7 +46,7 @@ function CourseCard(props: CourseCardProps) {
 				}}
 			>
 				<Button
-					to={`/apps/academy/courses/${course.id}/${course.slug}`}
+					to={`/apps/summarizer/sumdocs/${sumdoc.id}/${sumdoc.slug}`}
 					component={Link}
 					className="px-16 min-w-128"
 					color="secondary"
@@ -60,4 +60,4 @@ function CourseCard(props: CourseCardProps) {
 	);
 }
 
-export default CourseCard;
+export default SumdocCard;

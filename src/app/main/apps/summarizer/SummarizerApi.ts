@@ -10,38 +10,38 @@ const SummarizerApi = apiService
 	})
 	.injectEndpoints({
 		endpoints: (build) => ({
-			getAcademyCourses: build.query<GetAcademyCoursesApiResponse, GetAcademyCoursesApiArg>({
+			getSummarizedDocs: build.query<GetSummarizedDocsApiResponse, GetSummarizedDocsApiArg>({
 				query: () => ({ url: `/mock-api/academy/courses` }),
 				providesTags: ['academy_courses']
 			}),
-			getAcademyCourse: build.query<GetAcademyCourseApiResponse, GetAcademyCourseApiArg>({
-				query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.courseId}` }),
+			getSummarizedDoc: build.query<GetSummarizedDocApiResponse, GetSummarizedDocApiArg>({
+				query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
 				providesTags: ['academy_course']
 			}),
-			updateAcademyCourse: build.mutation<UpdateAcademyCourseApiResponse, UpdateAcademyCourseApiArg>({
+			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
 				query: (queryArg) => ({
-					url: `/mock-api/academy/courses/${queryArg.courseId}`,
+					url: `/mock-api/academy/courses/${queryArg.sumdocId}`,
 					method: 'PUT',
 					data: queryArg.data
 				}),
 				async onQueryStarted(id, { dispatch, queryFulfilled }) {
 					try {
 						await queryFulfilled;
-						dispatch(showMessage({ message: 'Course Saved' }));
+						dispatch(showMessage({ message: 'Sumdoc Saved' }));
 					} catch (err) {
-						dispatch(showMessage({ message: 'Error Saving the course!' }));
+						dispatch(showMessage({ message: 'Error Saving the sumdoc!' }));
 					}
 				},
 				invalidatesTags: ['academy_courses', 'academy_course']
 			}),
-			deleteAcademyCourse: build.mutation<DeleteAcademyCourseApiResponse, DeleteAcademyCourseApiArg>({
+			deleteSummarizedDoc: build.mutation<DeleteSummarizedDocApiResponse, DeleteSummarizedDocApiArg>({
 				query: (queryArg) => ({
-					url: `/mock-api/academy/courses/${queryArg.courseId}`,
+					url: `/mock-api/academy/courses/${queryArg.sumdocId}`,
 					method: 'DELETE'
 				}),
 				invalidatesTags: ['academy_courses']
 			}),
-			getAcademyCategories: build.query<GetAcademyCategoriesApiResponse, GetAcademyCategoriesApiArg>({
+			getSumdocCategories: build.query<GetSumdocCategoriesApiResponse, GetSumdocCategoriesApiArg>({
 				query: () => ({ url: `/mock-api/academy/categories` }),
 				providesTags: ['academy_categories']
 			})
@@ -50,27 +50,27 @@ const SummarizerApi = apiService
 	});
 
 export default SummarizerApi;
-export type GetAcademyCoursesApiResponse = /** status 200 OK */ Course[];
-export type GetAcademyCoursesApiArg = void;
-export type GetAcademyCourseApiResponse = /** status 200 OK */ Course;
-export type GetAcademyCourseApiArg = {
-	courseId: string;
+export type GetSummarizedDocsApiResponse = /** status 200 OK */ Sumdoc[];
+export type GetSummarizedDocsApiArg = void;
+export type GetSummarizedDocApiResponse = /** status 200 OK */ Sumdoc;
+export type GetSummarizedDocApiArg = {
+	sumdocId: string;
 };
 
-export type UpdateAcademyCourseApiResponse = unknown;
-export type UpdateAcademyCourseApiArg = {
-	courseId: string;
-	data: PartialDeep<Course>;
+export type UpdateSummarizedDocApiResponse = unknown;
+export type UpdateSummarizedDocApiArg = {
+	sumdocId: string;
+	data: PartialDeep<Sumdoc>;
 };
 
-export type DeleteAcademyCourseApiResponse = unknown;
-export type DeleteAcademyCourseApiArg = {
-	courseId: string;
+export type DeleteSummarizedDocApiResponse = unknown;
+export type DeleteSummarizedDocApiArg = {
+	sumdocId: string;
 };
 
-export type GetAcademyCategoriesApiResponse = /** status 200 OK */ Category[];
-export type GetAcademyCategoriesApiArg = void;
-export type Course = {
+export type GetSumdocCategoriesApiResponse = /** status 200 OK */ Category[];
+export type GetSumdocCategoriesApiArg = void;
+export type Sumdoc = {
 	id: string;
 	title: string;
 	slug: string;
@@ -101,9 +101,9 @@ export type Category = {
 };
 
 export const {
-	useGetAcademyCoursesQuery,
-	useGetAcademyCourseQuery,
-	useUpdateAcademyCourseMutation,
-	useDeleteAcademyCourseMutation,
-	useGetAcademyCategoriesQuery
+	useGetSummarizedDocsQuery,
+	useGetSummarizedDocQuery,
+	useUpdateSummarizedDocMutation,
+	useDeleteSummarizedDocMutation,
+	useGetSumdocCategoriesQuery
 } = SummarizerApi;

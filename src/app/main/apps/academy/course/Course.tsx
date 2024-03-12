@@ -123,10 +123,10 @@ function Course() {
 					>
 						{course.steps.map((step: { content: string }, index: number) => (
 							<div
-								className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
+								className="flex justify-center p-2 pb-64 sm:p-2 sm:pb-2 md:p-2 md:pb-2"
 								key={index}
 							>
-								<Paper className="w-full max-w-lg mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
+								<Paper className="w-full max-w-xl mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
 									<div
 										className="prose prose-sm dark:prose-invert w-full max-w-full"
 										// eslint-disable-next-line react/no-danger
@@ -138,7 +138,7 @@ function Course() {
 						))}
 					</SwipeableViews>
 
-					<Hidden lgDown>
+					{/* <Hidden lgDown>
 						<div className="flex justify-center w-full sticky bottom-0 p-16 pb-32 z-10">
 							<ButtonGroup
 								variant="contained"
@@ -198,7 +198,7 @@ function Course() {
 								<FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>
 							</IconButton>
 						</Box>
-					</Hidden>
+					</Hidden> */}
 				</div>
 			}
 			leftSidebarOpen={leftSidebarOpen}

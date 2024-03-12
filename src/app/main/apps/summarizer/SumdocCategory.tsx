@@ -1,19 +1,19 @@
 import { darken, lighten } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 import _ from '@lodash';
-import { Course, useGetAcademyCategoriesQuery } from './SummarizerApi';
+import { Sumdoc, useGetSumdocCategoriesQuery } from './SummarizerApi';
 
-type CourseCategoryProps = {
-	slug: Course['slug'];
+type SumdocCategoryProps = {
+	slug: Sumdoc['slug'];
 };
 
 /**
- * The CourseCategory component.
+ * The SumdocCategory component.
  */
-function CourseCategory(props: CourseCategoryProps) {
+function SumdocCategory(props: SumdocCategoryProps) {
 	const { slug } = props;
 
-	const { data: categories } = useGetAcademyCategoriesQuery();
+	const { data: categories } = useGetSumdocCategoriesQuery();
 
 	const category = _.find(categories, { slug });
 
@@ -36,4 +36,4 @@ function CourseCategory(props: CourseCategoryProps) {
 	);
 }
 
-export default CourseCategory;
+export default SumdocCategory;

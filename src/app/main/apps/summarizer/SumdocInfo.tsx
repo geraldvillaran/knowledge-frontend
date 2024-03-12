@@ -2,30 +2,30 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import clsx from 'clsx';
-import CourseCategory from './CourseCategory';
-import { Course } from './SummarizerApi';
+import SumdocCategory from './SumdocCategory';
+import { Sumdoc } from './SummarizerApi';
 
-type CourseInfoProps = {
-	course: Course;
+type SumdocInfoProps = {
+	sumdoc: Sumdoc;
 	className?: string;
 };
 
 /**
- * The CourseInfo component.
+ * The SumdocInfo component.
  */
-function CourseInfo(props: CourseInfoProps) {
-	const { course, className } = props;
+function SumdocInfo(props: SumdocInfoProps) {
+	const { sumdoc, className } = props;
 
-	if (!course) {
+	if (!sumdoc) {
 		return null;
 	}
 
 	return (
 		<div className={clsx('w-full', className)}>
 			<div className="flex items-center justify-between mb-16">
-				<CourseCategory slug={course.category} />
+				<SumdocCategory slug={sumdoc.category} />
 
-				{course.progress.completed > 0 && (
+				{sumdoc.progress.completed > 0 && (
 					<FuseSvgIcon
 						className="text-green-600"
 						size={20}
@@ -35,13 +35,13 @@ function CourseInfo(props: CourseInfoProps) {
 				)}
 			</div>
 
-			<Typography className="text-16 font-medium">{course.title}</Typography>
+			<Typography className="text-16 font-medium">{sumdoc.title}</Typography>
 
 			<Typography
 				className="text-13 mt-2 line-clamp-2"
 				color="text.secondary"
 			>
-				{course.description}
+				{sumdoc.description}
 			</Typography>
 
 			<Divider
@@ -59,7 +59,7 @@ function CourseInfo(props: CourseInfoProps) {
 				>
 					heroicons-solid:clock
 				</FuseSvgIcon>
-				<span className="whitespace-nowrap leading-none">{`${course.duration} minutes`}</span>
+				<span className="whitespace-nowrap leading-none">{`${sumdoc.duration} minutes`}</span>
 			</Typography>
 			<Typography
 				className="flex items-center space-x-6 text-13 mt-8"
@@ -72,14 +72,14 @@ function CourseInfo(props: CourseInfoProps) {
 					heroicons-solid:academic-cap
 				</FuseSvgIcon>
 				<span className="whitespace-nowrap leading-none">
-					{course.progress.completed === 1 && 'Completed once'}
-					{course.progress.completed === 2 && 'Completed twice'}
-					{course.progress.completed > 2 && `Completed ${course.progress.completed} times`}
-					{course.progress.completed <= 0 && 'Never completed'}
+					{sumdoc.progress.completed === 1 && 'Completed once'}
+					{sumdoc.progress.completed === 2 && 'Completed twice'}
+					{sumdoc.progress.completed > 2 && `Completed ${sumdoc.progress.completed} times`}
+					{sumdoc.progress.completed <= 0 && 'Never completed'}
 				</span>
 			</Typography>
 		</div>
 	);
 }
 
-export default CourseInfo;
+export default SumdocInfo;

@@ -14,8 +14,8 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { Theme } from '@mui/material/styles';
 import FuseLoading from '@fuse/core/FuseLoading';
-import CourseCard from './CourseCard';
-import { Course, useGetAcademyCategoriesQuery, useGetAcademyCoursesQuery } from '../SummarizerApi';
+import SumdocCard from './SumdocCard';
+import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery } from '../SummarizerApi';
 
 const container = {
 	show: {
@@ -37,26 +37,26 @@ const item = {
 };
 
 /**
- * The Courses page.
+ * The Sumdocs page.
  */
-function Courses() {
-	const { data: courses, isLoading } = useGetAcademyCoursesQuery();
-	const { data: categories } = useGetAcademyCategoriesQuery();
+function Sumdocs() {
+	const { data: sumdocs, isLoading } = useGetSummarizedDocsQuery();
+	const { data: categories } = useGetSumdocCategoriesQuery();
 
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
-	const [filteredData, setFilteredData] = useState<Course[]>(courses);
+	const [filteredData, setFilteredData] = useState<Sumdoc[]>(sumdocs);
 	const [searchText, setSearchText] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [hideCompleted, setHideCompleted] = useState(false);
 
 	useEffect(() => {
 		function getFilteredArray() {
-			if (courses && searchText.length === 0 && selectedCategory === 'all' && !hideCompleted) {
-				return courses;
+			if (sumdocs && searchText.length === 0 && selectedCategory === 'all' && !hideCompleted) {
+				return sumdocs;
 			}
 
-			return _.filter(courses, (item) => {
+			return _.filter(sumdocs, (item) => {
 				if (selectedCategory !== 'all' && item.category !== selectedCategory) {
 					return false;
 				}
@@ -69,10 +69,10 @@ function Courses() {
 			});
 		}
 
-		if (courses) {
+		if (sumdocs) {
 			setFilteredData(getFilteredArray());
 		}
-	}, [courses, hideCompleted, searchText, selectedCategory]);
+	}, [sumdocs, hideCompleted, searchText, selectedCategory]);
 
 	function handleSelectedCategory(event: SelectChangeEvent<string>) {
 		setSelectedCategory(event.target.value);
@@ -190,7 +190,7 @@ function Courses() {
 								</Select>
 							</FormControl>
 							<TextField
-								label="Search for a course"
+								label="Search for a sumdoc"
 								placeholder="Enter a keyword..."
 								className="flex w-full sm:w-256 mx-8"
 								value={searchText}
@@ -226,13 +226,13 @@ function Courses() {
 								initial="hidden"
 								animate="show"
 							>
-								{filteredData.map((course) => {
+								{filteredData.map((sumdoc) => {
 									return (
 										<motion.div
 											variants={item}
-											key={course.id}
+											key={sumdoc.id}
 										>
-											<CourseCard course={course} />
+											<SumdocCard sumdoc={sumdoc} />
 										</motion.div>
 									);
 								})}
@@ -243,7 +243,7 @@ function Courses() {
 									color="text.secondary"
 									className="text-24 my-24"
 								>
-									No courses found!
+									No sumdocs found!
 								</Typography>
 							</div>
 						))}
@@ -254,4 +254,4 @@ function Courses() {
 	);
 }
 
-export default Courses;
+export default Sumdocs;

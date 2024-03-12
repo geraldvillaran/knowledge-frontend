@@ -37,6 +37,15 @@ const navigationConfig: FuseNavItemType[] = [
 				// url: '/apps/academy',
 				url: '/apps/summarizer',
 				// translate: 'SUMMARIZER'
+			},
+			{
+				id: 'apps.e-commerce',
+				title: 'E-Commerce',
+				type: 'item',
+				icon: 'heroicons-outline:document-text',
+				// url: '/apps/academy',
+				url: '/apps/e-commerce',
+				// translate: 'SUMMARIZER'
 			}
 		]
 	},

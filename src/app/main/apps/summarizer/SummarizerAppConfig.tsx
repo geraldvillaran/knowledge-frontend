@@ -2,11 +2,11 @@ import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
 const SummarizerApp = lazy(() => import('./SummarizerApp'));
-const Course = lazy(() => import('./course/Course'));
-const Courses = lazy(() => import('./courses/Courses'));
+const Sumdoc = lazy(() => import('./sumdoc/Sumdoc'));
+const Sumdocs = lazy(() => import('./sumdocs/Sumdocs'));
 
 /**
- * The Academy app config.
+ * The Summarizer app config.
  */
 const SummarizerAppConfig = {
 	settings: {
@@ -19,15 +19,15 @@ const SummarizerAppConfig = {
 			children: [
 				{
 					path: '',
-					element: <Navigate to="/apps/summarizer/courses" />
+					element: <Navigate to="/apps/summarizer/sumdocs" />
 				},
 				{
-					path: 'courses/:courseId/*',
-					element: <Course />
+					path: 'sumdocs/:sumdocId/*',
+					element: <Sumdoc />
 				},
 				{
-					path: 'courses',
-					element: <Courses />
+					path: 'sumdocs',
+					element: <Sumdocs />
 				}
 			]
 		}

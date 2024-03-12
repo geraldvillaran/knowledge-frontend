@@ -16,51 +16,51 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import FuseLoading from '@fuse/core/FuseLoading';
-import CourseInfo from '../CourseInfo';
-import CourseProgress from '../CourseProgress';
+import SumdocInfo from '../SumdocInfo';
+import SumdocProgress from '../SumdocProgress';
 import Error404Page from '../../../404/Error404Page';
-import { useGetAcademyCourseQuery, useUpdateAcademyCourseMutation } from '../SummarizerApi';
+import { useGetSummarizedDocQuery, useUpdateSummarizedDocMutation } from '../SummarizerApi';
 
 /**
- * The Course page.
+ * The Sumdoc page.
  */
-function Course() {
+function Sumdoc() {
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 	const theme = useTheme();
 	const pageLayout = useRef(null);
 	const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
 	const routeParams = useParams();
-	const { courseId } = routeParams;
-	const { data: course, isLoading } = useGetAcademyCourseQuery(
-		{ courseId },
+	const { sumdocId } = routeParams;
+	const { data: sumdoc, isLoading } = useGetSummarizedDocQuery(
+		{ sumdocId },
 		{
-			skip: !courseId
+			skip: !sumdocId
 		}
 	);
-	const [updateCourse] = useUpdateAcademyCourseMutation();
+	const [updateSumdoc] = useUpdateSummarizedDocMutation();
 
 	useEffect(() => {
 		/**
-		 * If the course is opened for the first time
+		 * If the sumdoc is opened for the first time
 		 * Change ActiveStep to 1
 		 */
-		if (course && course?.progress?.currentStep === 0) {
-			updateCourse({ courseId, data: { progress: { currentStep: 1 } } });
+		if (sumdoc && sumdoc?.progress?.currentStep === 0) {
+			updateSumdoc({ sumdocId, data: { progress: { currentStep: 1 } } });
 		}
-	}, [course]);
+	}, [sumdoc]);
 
 	useEffect(() => {
 		setLeftSidebarOpen(!isMobile);
 	}, [isMobile]);
 
-	const currentStep = course?.progress?.currentStep || 0;
+	const currentStep = sumdoc?.progress?.currentStep || 0;
 
 	function updateCurrentStep(index: number) {
-		if (course && (index > course.totalSteps || index < 0)) {
+		if (sumdoc && (index > sumdoc.totalSteps || index < 0)) {
 			return;
 		}
 
-		updateCourse({ courseId, data: { progress: { currentStep: index } } });
+		updateSumdoc({ sumdocId, data: { progress: { currentStep: index } } });
 	}
 
 	function handleNext() {
@@ -81,7 +81,7 @@ function Course() {
 		return <FuseLoading />;
 	}
 
-	if (!course) {
+	if (!sumdoc) {
 		return <Error404Page />;
 	}
 
@@ -90,9 +90,9 @@ function Course() {
 			content={
 				<div className="w-full">
 					<Hidden lgDown>
-						<CourseProgress
+						<SumdocProgress
 							className="sticky top-0 z-10"
-							course={course}
+							sumdoc={sumdoc}
 						/>
 					</Hidden>
 
@@ -102,7 +102,7 @@ function Course() {
 							square
 						>
 							<IconButton
-								to="/apps/academy/courses"
+								to="/apps/academy/sumdocs"
 								component={Link}
 							>
 								<FuseSvgIcon>
@@ -112,7 +112,7 @@ function Course() {
 								</FuseSvgIcon>
 							</IconButton>
 
-							<Typography className="text-13 font-medium tracking-tight mx-10">{course.title}</Typography>
+							<Typography className="text-13 font-medium tracking-tight mx-10">{sumdoc.title}</Typography>
 						</Paper>
 					</Hidden>
 
@@ -121,7 +121,7 @@ function Course() {
 						enableMouseEvents
 						onChangeIndex={handleStepChange}
 					>
-						{course.steps.map((step: { content: string }, index: number) => (
+						{sumdoc.steps.map((step: { content: string }, index: number) => (
 							<div
 								className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
 								key={index}
@@ -157,7 +157,7 @@ function Course() {
 								<Button
 									className="pointer-events-none min-h-56"
 									size="large"
-								>{`${activeStep}/${course.totalSteps}`}</Button>
+								>{`${activeStep}/${sumdoc.totalSteps}`}</Button>
 								<Button
 									className="min-h-56 rounded-full"
 									size="large"
@@ -183,11 +183,11 @@ function Course() {
 								<FuseSvgIcon>heroicons-outline:view-list</FuseSvgIcon>
 							</IconButton>
 
-							<Typography className="mx-8">{`${activeStep}/${course.totalSteps}`}</Typography>
+							<Typography className="mx-8">{`${activeStep}/${sumdoc.totalSteps}`}</Typography>
 
-							<CourseProgress
+							<SumdocProgress
 								className="flex flex-1 mx-8"
-								course={course}
+								sumdoc={sumdoc}
 							/>
 
 							<IconButton onClick={handleBack}>
@@ -210,7 +210,7 @@ function Course() {
 				<>
 					<div className="p-32">
 						<Button
-							to="/apps/academy/courses"
+							to="/apps/academy/sumdocs"
 							component={Link}
 							className="mb-24"
 							color="secondary"
@@ -223,10 +223,10 @@ function Course() {
 								</FuseSvgIcon>
 							}
 						>
-							Back to courses
+							Back to sumdocs
 						</Button>
 
-						<CourseInfo course={course} />
+						<SumdocInfo sumdoc={sumdoc} />
 					</div>
 					<Divider />
 					<Stepper
@@ -234,7 +234,7 @@ function Course() {
 						activeStep={activeStep - 1}
 						orientation="vertical"
 					>
-						{course.steps.map((step, index) => {
+						{sumdoc.steps.map((step, index) => {
 							return (
 								<Step
 									key={index}
@@ -288,4 +288,4 @@ function Course() {
 	);
 }
 
-export default Course;
+export default Sumdoc;

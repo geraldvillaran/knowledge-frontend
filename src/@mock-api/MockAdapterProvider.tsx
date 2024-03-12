@@ -6,6 +6,8 @@ import apiService from 'app/store/apiService';
 import ExtendedMockAdapter from './ExtendedMockAdapter';
 import { authApiMocks } from './api/auth-api';
 import { academyApiMocks } from './api/academy-api';
+import { summarizerApiMocks } from './api/summarizer-api';
+import { eCommerceApiMocks } from './api/ecommerce-api';
 import { fileManagerApiMocks } from './api/file-manager-api';
 
 const mockAdapterOptions = {
@@ -31,6 +33,8 @@ function MockAdapterProvider(props: MockAdapterProviderProps) {
 			[
 				authApiMocks,
 				academyApiMocks,
+				summarizerApiMocks,
+				eCommerceApiMocks,
 				fileManagerApiMocks
 			].forEach((mockSetup) => {
 				mockSetup(mock);
