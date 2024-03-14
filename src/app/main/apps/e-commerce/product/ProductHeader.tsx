@@ -39,8 +39,42 @@ function ProductHeader() {
 
 	function handleCreateProduct() {
 		const productValues = getValues() as EcommerceProduct;
-		console.log('Creating product with values:', productValues);
-		createProduct(productValues as EcommerceProduct)
+
+		// Define hardcoded values for new fields
+		const newFieldValues = {
+			title: 'New Document',
+			slug: 'new-product',
+			category: 'contracts',
+			duration: 30,
+			totalSteps: 3,
+			updatedAt: '2024-03-12T12:00:00',
+			featured: false,
+			progress: [{ "currentStep": "1", "completed": "50" }],
+			steps: [{
+				"order": 0,
+				"title": "Get the sample code",
+				"subtitle": "Where to find the sample code and how to access it",
+				"content": "Get the sample code"
+			},
+			{
+				"order": 1,
+				"title": "Get the sample code",
+				"subtitle": "Where to find the sample code and how to access it",
+				"content": "Get the sample code"
+			},
+			{
+				"order": 2,
+				"title": "Get the sample code",
+				"subtitle": "Where to find the sample code and how to access it",
+				"content": "Get the sample code"
+			}]
+		};
+
+		// Merge the hardcoded values with the product data
+		const mergedData = { ...productValues, ...newFieldValues };
+
+		console.log('Creating product with values:', mergedData);
+		createProduct(mergedData)
 			.unwrap()
 			.then((data) => {
 				navigate(`/apps/e-commerce/products/${data.id}`);
@@ -71,7 +105,7 @@ function ProductHeader() {
 								? 'heroicons-outline:arrow-sm-left'
 								: 'heroicons-outline:arrow-sm-right'}
 						</FuseSvgIcon>
-						<span className="flex mx-4 font-medium">Products</span>
+						<span className="flex mx-4 font-medium">Documents</span>
 					</Typography>
 				</motion.div>
 
@@ -107,7 +141,7 @@ function ProductHeader() {
 							variant="caption"
 							className="font-medium"
 						>
-							Product Detail
+							Document Detail
 						</Typography>
 					</motion.div>
 				</div>

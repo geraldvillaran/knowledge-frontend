@@ -2,7 +2,9 @@ import apiService from 'app/store/apiService';
 import { showMessage } from '@fuse/core/FuseMessage/fuseMessageSlice';
 import { PartialDeep } from 'type-fest';
 
-export const addTagTypes = ['academy_courses', 'academy_course', 'academy_categories'] as const;
+export const addTagTypes = ['academy_courses', 'academy_course', 'summarizer_categories'] as const;
+
+const BASE_URL = 'http://localhost:8000';
 
 const SummarizerApi = apiService
 	.enhanceEndpoints({
@@ -11,11 +13,12 @@ const SummarizerApi = apiService
 	.injectEndpoints({
 		endpoints: (build) => ({
 			getSummarizedDocs: build.query<GetSummarizedDocsApiResponse, GetSummarizedDocsApiArg>({
-				query: () => ({ url: `/mock-api/academy/courses` }),
+				query: () => ({ url: `${BASE_URL}/e-commerce/products` }),
 				providesTags: ['academy_courses']
 			}),
 			getSummarizedDoc: build.query<GetSummarizedDocApiResponse, GetSummarizedDocApiArg>({
-				query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
+				// query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
+				query: (queryArg) => ({ url: `${BASE_URL}/e-commerce/products/${queryArg.sumdocId}` }),
 				providesTags: ['academy_course']
 			}),
 			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
@@ -42,8 +45,8 @@ const SummarizerApi = apiService
 				invalidatesTags: ['academy_courses']
 			}),
 			getSumdocCategories: build.query<GetSumdocCategoriesApiResponse, GetSumdocCategoriesApiArg>({
-				query: () => ({ url: `/mock-api/academy/categories` }),
-				providesTags: ['academy_categories']
+				query: () => ({ url: `/mock-api/summarizer/categories` }),
+				providesTags: ['summarizer_categories']
 			})
 		}),
 		overrideExisting: false

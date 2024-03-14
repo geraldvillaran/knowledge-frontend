@@ -134,6 +134,7 @@ export type EcommerceProduct = {
 	name: string;
 	handle: string;
 	description: string;
+	category: string;
 	categories: string[];
 	tags: string[];
 	featuredImageId: string;
@@ -150,6 +151,14 @@ export type EcommerceProduct = {
 	weight: string;
 	extraShippingFee: number;
 	active: boolean;
+	title: string;
+	slug: string;
+	duration: number;
+	totalSteps: number;
+	updatedAt: string;
+	featured: boolean;
+	progress: { currentStep: string, completed: string }[];
+	steps: { order: number, title: string, subtitle: string, content: string }[];
 };
 
 export type EcommerceOrder = {

@@ -19,11 +19,25 @@ import FuseLoading from '@fuse/core/FuseLoading';
 import SumdocInfo from '../SumdocInfo';
 import SumdocProgress from '../SumdocProgress';
 import Error404Page from '../../../404/Error404Page';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ArticleIcon from '@mui/icons-material/Article';
+import ListItemText from '@mui/material/ListItemText';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import { useGetSummarizedDocQuery, useUpdateSummarizedDocMutation } from '../SummarizerApi';
-
+import BasicTabs, { BasicTabsProps } from '../sumdoc/SumdocTabs';
+import SummaryCard from './SummaryCard';
+import SumdocEvalChart from './SumdocEvalChart';
 /**
  * The Sumdoc page.
  */
+
+const drawerWidth = 240;
+const icons = [<ArticleIcon />, <SummarizeIcon />, <StackedLineChartIcon />];
+
 function Sumdoc() {
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 	const theme = useTheme();
@@ -38,6 +52,34 @@ function Sumdoc() {
 		}
 	);
 	const [updateSumdoc] = useUpdateSummarizedDocMutation();
+
+	const [activeTab, setActiveTab] = useState(0);
+	const tabContents = [
+		/* Content for 'Document' */
+		<>hello</>,
+		/* Content for 'Summaries' */
+		<>
+			<div style={{ display: 'flex' }}>
+				<div style={{ flex: 1, marginRight: '10px' }}>
+					<SummaryCard />
+
+				</div>
+				<div style={{ flex: 1 }}>
+					<SummaryCard />
+				</div>
+			</div>
+			<Divider />
+			<h3>Evaluation</h3>
+			<div style={{ display: "flex", width: "100%" }}>
+				<SumdocEvalChart />
+			</div>
+		</>
+	];
+
+	const handleTabChange = (index: number) => {
+		setActiveTab(index);
+	};
+
 
 	useEffect(() => {
 		/**
@@ -60,7 +102,7 @@ function Sumdoc() {
 			return;
 		}
 
-		updateSumdoc({ sumdocId, data: { progress: { currentStep: index } } });
+		// updateSumdoc({ sumdocId, data: { progress: { currentStep: index } } });
 	}
 
 	function handleNext() {
@@ -102,7 +144,7 @@ function Sumdoc() {
 							square
 						>
 							<IconButton
-								to="/apps/academy/sumdocs"
+								to="/apps/summarizer/sumdocs"
 								component={Link}
 							>
 								<FuseSvgIcon>
@@ -115,90 +157,19 @@ function Sumdoc() {
 							<Typography className="text-13 font-medium tracking-tight mx-10">{sumdoc.title}</Typography>
 						</Paper>
 					</Hidden>
-
-					<SwipeableViews
-						index={activeStep - 1}
-						enableMouseEvents
-						onChangeIndex={handleStepChange}
+					<div
+						className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
 					>
-						{sumdoc.steps.map((step: { content: string }, index: number) => (
+						<Paper className="w-full max-w-xl mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
 							<div
-								className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
-								key={index}
-							>
-								<Paper className="w-full max-w-lg mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
-									<div
-										className="prose prose-sm dark:prose-invert w-full max-w-full"
-										// eslint-disable-next-line react/no-danger
-										dangerouslySetInnerHTML={{ __html: step.content }}
-										dir={theme.direction}
-									/>
-								</Paper>
-							</div>
-						))}
-					</SwipeableViews>
-
-					<Hidden lgDown>
-						<div className="flex justify-center w-full sticky bottom-0 p-16 pb-32 z-10">
-							<ButtonGroup
-								variant="contained"
-								aria-label=""
-								className="rounded-full"
-								color="secondary"
-							>
-								<Button
-									className="min-h-56 rounded-full"
-									size="large"
-									startIcon={<FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>}
-									onClick={handleBack}
-								>
-									Prev
-								</Button>
-								<Button
-									className="pointer-events-none min-h-56"
-									size="large"
-								>{`${activeStep}/${sumdoc.totalSteps}`}</Button>
-								<Button
-									className="min-h-56 rounded-full"
-									size="large"
-									endIcon={<FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>}
-									onClick={handleNext}
-								>
-									Next
-								</Button>
-							</ButtonGroup>
-						</div>
-					</Hidden>
-
-					<Hidden lgUp>
-						<Box
-							sx={{ backgroundColor: 'background.paper' }}
-							className="flex sticky bottom-0 z-10 items-center w-full p-16 border-t-1"
-						>
-							<IconButton
-								onClick={() => setLeftSidebarOpen(true)}
-								aria-label="open left sidebar"
-								size="large"
-							>
-								<FuseSvgIcon>heroicons-outline:view-list</FuseSvgIcon>
-							</IconButton>
-
-							<Typography className="mx-8">{`${activeStep}/${sumdoc.totalSteps}`}</Typography>
-
-							<SumdocProgress
-								className="flex flex-1 mx-8"
-								sumdoc={sumdoc}
+								className="prose prose-sm dark:prose-invert w-full max-w-full"
+								// eslint-disable-next-line react/no-danger
+								// dangerouslySetInnerHTML={{ __html: step.content }}
+								dir={theme.direction}
 							/>
-
-							<IconButton onClick={handleBack}>
-								<FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>
-							</IconButton>
-
-							<IconButton onClick={handleNext}>
-								<FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>
-							</IconButton>
-						</Box>
-					</Hidden>
+							<BasicTabs activeTab={activeTab} contents={tabContents} />
+						</Paper>
+					</div>
 				</div>
 			}
 			leftSidebarOpen={leftSidebarOpen}
@@ -210,7 +181,7 @@ function Sumdoc() {
 				<>
 					<div className="p-32">
 						<Button
-							to="/apps/academy/sumdocs"
+							to="/apps/summarizer/sumdocs"
 							component={Link}
 							className="mb-24"
 							color="secondary"
@@ -223,63 +194,28 @@ function Sumdoc() {
 								</FuseSvgIcon>
 							}
 						>
-							Back to sumdocs
+							Back to Documents
 						</Button>
 
 						<SumdocInfo sumdoc={sumdoc} />
 					</div>
 					<Divider />
-					<Stepper
-						classes={{ root: 'p-32' }}
-						activeStep={activeStep - 1}
-						orientation="vertical"
-					>
-						{sumdoc.steps.map((step, index) => {
-							return (
-								<Step
-									key={index}
-									sx={{
-										'& .MuiStepLabel-root, & .MuiStepContent-root': {
-											cursor: 'pointer!important'
-										},
-										'& .MuiStepContent-root': {
-											color: 'text.secondary',
-											fontSize: 13
-										}
-									}}
-									onClick={() => handleStepChange(step.order)}
-									expanded
-								>
-									<StepLabel
-										className="font-medium"
-										sx={{
-											'& .MuiSvgIcon-root': {
-												color: 'background.default',
-												'& .MuiStepIcon-text': {
-													fill: (_theme) => _theme.palette.text.secondary
-												},
-												'&.Mui-completed': {
-													color: 'secondary.main',
-													'& .MuiStepIcon-text ': {
-														fill: (_theme) => _theme.palette.secondary.contrastText
-													}
-												},
-												'&.Mui-active': {
-													color: 'secondary.main',
-													'& .MuiStepIcon-text ': {
-														fill: (_theme) => _theme.palette.secondary.contrastText
-													}
-												}
-											}
-										}}
-									>
-										{step.title}
-									</StepLabel>
-									<StepContent>{step.subtitle}</StepContent>
-								</Step>
-							);
-						})}
-					</Stepper>
+					<List>
+						{['Document', 'Summaries'].map((text, index) => (
+							<ListItem
+								key={text}
+								disablePadding
+								button
+								selected={activeTab === index}
+								onClick={() => handleTabChange(index)}
+							>
+								<ListItemButton>
+									<ListItemIcon>{icons[index]}</ListItemIcon>
+									<ListItemText primary={text} />
+								</ListItemButton>
+							</ListItem>
+						))}
+					</List>
 				</>
 			}
 			scroll="content"

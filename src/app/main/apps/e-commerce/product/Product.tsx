@@ -21,6 +21,7 @@ import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
 import { useGetECommerceProductQuery } from '../ECommerceApi';
 import ProductModel from './models/ProductModel';
+import SummaryCard from '../../summarizer/sumdoc/SummaryCard';
 
 /**
  * Form Validation Schema
@@ -135,31 +136,46 @@ function Product() {
 						>
 							<Tab
 								className="h-64"
-								label="Basic Info"
+								label="Document Text"
 							/>
 							<Tab
 								className="h-64"
-								label="Product Images"
+								label="Summaries"
 							/>
-							<Tab
-								className="h-64"
-								label="Pricing"
-							/>
-							<Tab
-								className="h-64"
-								label="Inventory"
-							/>
-							<Tab
-								className="h-64"
-								label="Shipping"
+							// <Tab
+							// 	className="h-64"
+							// 	label="Product Images"
+							// />
+							// <Tab
+							// 	className="h-64"
+							// 	label="Pricing"
+							// />
+							// <Tab
+							// 	className="h-64"
+							// 	label="Inventory"
+							// />
+							// <Tab
+							// 	className="h-64"
+							// 	label="Shipping"
 							/>
 						</Tabs>
-						<div className="p-16 sm:p-24 max-w-3xl">
+						<div className="p-16 sm:p-24">
 							<div className={tabValue !== 0 ? 'hidden' : ''}>
 								<BasicInfoTab />
 							</div>
-
 							<div className={tabValue !== 1 ? 'hidden' : ''}>
+								<div style={{ display: 'flex' }}>
+									<div style={{ flex: 1, marginRight: '10px' }}>
+										<SummaryCard />
+
+									</div>
+									<div style={{ flex: 1 }}>
+										<SummaryCard />
+									</div>
+								</div>
+							</div>
+
+							{/* <div className={tabValue !== 1 ? 'hidden' : ''}>
 								<ProductImagesTab />
 							</div>
 
@@ -173,7 +189,7 @@ function Product() {
 
 							<div className={tabValue !== 4 ? 'hidden' : ''}>
 								<ShippingTab />
-							</div>
+							</div> */}
 						</div>
 					</>
 				}

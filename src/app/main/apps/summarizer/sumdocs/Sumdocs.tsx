@@ -12,8 +12,18 @@ import Switch from '@mui/material/Switch';
 import { FormControlLabel } from '@mui/material';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
+import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import { Theme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import FuseLoading from '@fuse/core/FuseLoading';
+import { Fragment } from 'react';
+import { closeDialog, openDialog } from '@fuse/core/FuseDialog/fuseDialogSlice';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
 import SumdocCard from './SumdocCard';
 import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery } from '../SummarizerApi';
 
@@ -49,6 +59,17 @@ function Sumdocs() {
 	const [searchText, setSearchText] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [hideCompleted, setHideCompleted] = useState(false);
+	const dispatch = useAppDispatch();
+
+	const [open, setOpen] = useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
 
 	useEffect(() => {
 		function getFilteredArray() {
@@ -105,7 +126,7 @@ function Sumdocs() {
 								color="inherit"
 								className="text-18 font-semibold"
 							>
-								KNOWLEDGE RESEARCH
+								CASETEXT
 							</Typography>
 						</motion.div>
 						<motion.div
@@ -204,8 +225,48 @@ function Sumdocs() {
 								}}
 							/>
 						</div>
-
-						<FormControlLabel
+						<FormControl>
+							<Button
+								onClick={handleClickOpen}
+								className="px-16 min-w-128"
+								color="success"
+								variant="contained"
+								endIcon={<FuseSvgIcon size={20}>heroicons-solid:plus-circle</FuseSvgIcon>}
+							>
+								Add New Document
+							</Button>
+							<Dialog
+								fullWidth={true}
+								maxWidth={'md'}
+								open={open}
+								onClose={handleClose}
+							>
+								<DialogTitle>New Document</DialogTitle>
+								<DialogContent>
+									<DialogContentText
+										sx={{ paddingBottom: "20px" }}
+									>
+										Word Count: --
+									</DialogContentText>
+									<TextField
+										id="outlined-multiline-static"
+										multiline
+										rows={30}
+										fullWidth
+									/>
+								</DialogContent>
+								<DialogActions
+									sx={{ padding: "25px" }}
+								>
+									<Button onClick={handleClose}>Close</Button>
+									<Button
+										color="success"
+										variant="contained"
+									>Summarize</Button>
+								</DialogActions>
+							</Dialog>
+						</FormControl>
+						{/* <FormControlLabel
 							label="Hide completed"
 							control={
 								<Switch
@@ -216,7 +277,8 @@ function Sumdocs() {
 									name="hideCompleted"
 								/>
 							}
-						/>
+
+						/> */}
 					</div>
 					{filteredData &&
 						(filteredData.length > 0 ? (
@@ -247,7 +309,7 @@ function Sumdocs() {
 								</Typography>
 							</div>
 						))}
-				</div>
+				</ div>
 			}
 			scroll={isMobile ? 'normal' : 'page'}
 		/>

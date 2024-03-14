@@ -11,6 +11,7 @@ const ProductModel = (data: PartialDeep<EcommerceProduct>) =>
 		name: '',
 		handle: '',
 		description: '',
+		category: '',
 		categories: [],
 		tags: [],
 		featuredImageId: '',
@@ -26,10 +27,15 @@ const ProductModel = (data: PartialDeep<EcommerceProduct>) =>
 		depth: '',
 		weight: '',
 		extraShippingFee: 0,
-		price: '',
 		active: true,
-		image: '',
-		total: ''
+		title: '',
+		slug: '',
+		duration: 0,
+		totalSteps: 0,
+		updatedAt: '',
+		featured: false,
+		progress: [],
+		steps: []
 	});
 
 export default ProductModel;

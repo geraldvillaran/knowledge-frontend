@@ -40,17 +40,17 @@ function BasicInfoTab() {
 						{...field}
 						className="mt-8 mb-16"
 						id="description"
-						label="Description"
+						label="Document Text"
 						type="text"
 						multiline
-						rows={5}
+						rows={30}
 						variant="outlined"
 						fullWidth
 					/>
 				)}
 			/>
 
-			<Controller
+			{/* <Controller
 				name="categories"
 				control={control}
 				defaultValue={[]}
@@ -106,7 +106,7 @@ function BasicInfoTab() {
 						)}
 					/>
 				)}
-			/>
+			/> */}
 		</div>
 	);
 }

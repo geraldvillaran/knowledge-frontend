@@ -24,7 +24,7 @@ function SumdocInfo(props: SumdocInfoProps) {
 		<div className={clsx('w-full', className)}>
 			<div className="flex items-center justify-between mb-16">
 				<SumdocCategory slug={sumdoc.category} />
-
+				{/* {sumdoc.category} */}
 				{sumdoc.progress.completed > 0 && (
 					<FuseSvgIcon
 						className="text-green-600"
@@ -59,7 +59,7 @@ function SumdocInfo(props: SumdocInfoProps) {
 				>
 					heroicons-solid:clock
 				</FuseSvgIcon>
-				<span className="whitespace-nowrap leading-none">{`${sumdoc.duration} minutes`}</span>
+				<span className="whitespace-nowrap leading-none">1024 Tokens</span>
 			</Typography>
 			<Typography
 				className="flex items-center space-x-6 text-13 mt-8"

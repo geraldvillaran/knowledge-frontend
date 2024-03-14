@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import Button from '@mui/material/Button';
 import { EcommerceProduct, useDeleteECommerceProductsMutation, useGetECommerceProductsQuery } from '../ECommerceApi';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
 
 function ProductsTable() {
 	const { data: products, isLoading } = useGetECommerceProductsQuery();
@@ -79,24 +81,21 @@ function ProductsTable() {
 			},
 			{
 				accessorKey: 'priceTaxIncl',
-				header: 'Price',
-				accessorFn: (row) => `$${row.priceTaxIncl}`
+				header: 'Token Size',
+				accessorFn: (row) => `${row.priceTaxIncl}`
 			},
 			{
 				accessorKey: 'quantity',
-				header: 'Quantity',
+				header: 'Rating',
 				accessorFn: (row) => (
-					<div className="flex items-center space-x-8">
-						<span>{row.quantity}</span>
-						<i
-							className={clsx(
-								'inline-block w-8 h-8 rounded',
-								row.quantity <= 5 && 'bg-red',
-								row.quantity > 5 && row.quantity <= 25 && 'bg-orange',
-								row.quantity > 25 && 'bg-green'
-							)}
-						/>
-					</div>
+					<Box
+						sx={{
+							'& > legend': { mt: 2 },
+						}}
+					>
+
+						<Rating name="read-only" value={4} readOnly />
+					</Box>
 				)
 			},
 			{

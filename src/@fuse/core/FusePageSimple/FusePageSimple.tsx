@@ -282,7 +282,7 @@ const FusePageSimple = forwardRef<
 						<div
 							className="FusePageSimple-contentWrapper"
 
-							// enable={scroll === 'page'}
+						// enable={scroll === 'page'}
 						>
 							{header && <FusePageSimpleHeader header={header} />}
 

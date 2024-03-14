@@ -30,23 +30,23 @@ const navigationConfig: FuseNavItemType[] = [
 				// translate: 'SUMMARIZER'
 			},
 			{
-				id: 'apps.summarizer',
+				id: 'apps.e-commerce',
 				title: 'Summarizer v1',
+				type: 'item',
+				icon: 'heroicons-outline:document-text',
+				// url: '/apps/academy',
+				url: '/apps/e-commerce',
+				// translate: 'SUMMARIZER'
+			},
+			{
+				id: 'apps.summarizer',
+				title: 'Summarizer v2',
 				type: 'item',
 				icon: 'heroicons-outline:book-open',
 				// url: '/apps/academy',
 				url: '/apps/summarizer',
 				// translate: 'SUMMARIZER'
 			},
-			{
-				id: 'apps.e-commerce',
-				title: 'E-Commerce',
-				type: 'item',
-				icon: 'heroicons-outline:document-text',
-				// url: '/apps/academy',
-				url: '/apps/e-commerce',
-				// translate: 'SUMMARIZER'
-			}
 		]
 	},
 	{

@@ -3827,6 +3827,37 @@
       },
       "parameters": []
     },
+    "/summarizer/categories": {
+      "get": {
+        "summary": "Get categories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/summarizer_category"
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/summarizer_categories"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getAcademyCategories",
+        "description": "Retrieve Summarizer category list.",
+        "tags": [
+          "summarizer_categories"
+        ]
+      },
+      "parameters": []
+    },
     "/messenger/contacts": {
       "get": {
         "summary": "Get contacts",
@@ -5776,6 +5807,42 @@
             "id": "9a67dff7-3c38-4052-a335-0cef93438ff6",
             "title": "Web",
             "slug": "web",
+            "color": "#2196f3"
+          }
+        }
+      },
+      "summarizer_category": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "slug",
+          "color"
+        ],
+        "x-examples": {
+          "example-1": {
+            "id": "9a67dff7-3c38-4052-a335-0cef93438ff6",
+            "title": "Contracts",
+            "slug": "contracts",
             "color": "#2196f3"
           }
         }
@@ -17689,6 +17756,34 @@
             "id": "5648a630-979f-4403-8c41-fc9790dea8cd",
             "title": "Android",
             "slug": "android",
+            "color": "#4caf50"
+          }
+        ]
+      },
+      "summarizer_categories": {
+        "value": [
+          {
+            "id": "9a67dff7-3c38-4052-a335-0cef93438ff6",
+            "title": "Contracts",
+            "slug": "contracts",
+            "color": "#2196f3"
+          },
+          {
+            "id": "a89672f5-e00d-4be4-9194-cb9d29f82165",
+            "title": "Wills and Estates",
+            "slug": "wills-and-estates",
+            "color": "#ffc107"
+          },
+          {
+            "id": "02f42092-bb23-4552-9ddb-cfdcc235d48f",
+            "title": "Leases",
+            "slug": "leases",
+            "color": "#607d8b"
+          },
+          {
+            "id": "5648a630-979f-4403-8c41-fc9790dea8cd",
+            "title": "IP",
+            "slug": "ip",
             "color": "#4caf50"
           }
         ]
@@ -32751,7 +32846,7 @@
             "password": "admin",
             "role": "admin",
             "data": {
-              "displayName": "Abbott Keitch",
+              "displayName": "Joy Marie Fabregas",
               "photoURL": "assets/images/avatars/kath.jpg",
               "email": "admin@polsum.com",
               "settings": {

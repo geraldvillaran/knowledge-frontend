@@ -11,7 +11,7 @@ const steps = exampleSumdocSteps.map((item) => ({
 	content: `${item.content} ${demoSumdocContent}`
 }));
 const sumdocs = mockApi.components.examples.academy_courses.value;
-const categoriesDB = mockApi.components.examples.academy_categories.value;
+const categoriesDB = mockApi.components.examples.summarizer_categories.value;
 
 const sumdocsDB = sumdocs.map((sumdoc) => ({
 	...sumdoc,

@@ -18,7 +18,6 @@ function SumdocCategory(props: SumdocCategoryProps) {
 	const category = _.find(categories, { slug });
 
 	if (!category) {
-		return null;
 	}
 
 	return (
