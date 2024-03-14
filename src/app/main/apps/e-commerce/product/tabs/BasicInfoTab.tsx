@@ -21,7 +21,7 @@ function BasicInfoTab() {
 						{...field}
 						className="mt-8 mb-16"
 						required
-						label="Name"
+						label="Document Title"
 						autoFocus
 						id="name"
 						variant="outlined"
@@ -46,6 +46,11 @@ function BasicInfoTab() {
 						rows={30}
 						variant="outlined"
 						fullWidth
+						sx={{
+							'& .MuiInputBase-inputMultiline': {
+								lineHeight: '1.5', // Adjust line height as needed, '1.5' is just an example
+							},
+						}}
 					/>
 				)}
 			/>

@@ -26,7 +26,7 @@ function SumdocCard(props: SumdocCardProps) {
 			case 0:
 				return 'Start';
 			default:
-				return 'Continue';
+				return 'Open';
 		}
 	}
 

@@ -180,7 +180,7 @@ function ProductHeader() {
 						disabled={_.isEmpty(dirtyFields) || !isValid}
 						onClick={handleCreateProduct}
 					>
-						Add
+						Save
 					</Button>
 				)}
 			</motion.div>

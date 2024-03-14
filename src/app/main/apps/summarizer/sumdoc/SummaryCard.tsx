@@ -18,6 +18,18 @@ const bull = (
     </Box>
 );
 
+const renderSummaryPoints = (summaryText) => {
+    // Split the summary into an array of points based on "-"
+    // and filter out any empty strings that might occur due to split
+    const points = summaryText.split('-').filter(point => point.trim() !== '');
+    return points.map((point, index) => (
+        // Render each point as a paragraph, trimming whitespace
+        <Typography key={index} variant="body2" paragraph>
+            -{point.trim()}
+        </Typography>
+    ));
+};
+
 export default function SummaryCard({ model, summary }) {
     const [showModel, setShowModel] = React.useState(false);
 
@@ -36,18 +48,18 @@ export default function SummaryCard({ model, summary }) {
                             </IconButton>
                             Model: <b>{showModel ? model : '****'}</b>
                         </Typography>
-                        <Typography variant="h5" component="div">
+                        {/* <Typography variant="h5" component="div">
                             be{bull}nev{bull}o{bull}lent
                         </Typography>
                         <Typography sx={{ mb: 1.5 }} color="text.secondary">
                             adjective
-                        </Typography>
+                        </Typography> */}
                         <Typography variant="body2">
-                            {summary}
+                            {renderSummaryPoints(summary)}
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small">Learn More</Button>
+                        <Button sx={{ padding: "10px" }} size="small">More Action...</Button>
                     </CardActions>
                 </React.Fragment>
             </Card>

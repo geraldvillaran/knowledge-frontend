@@ -29,7 +29,7 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import { useGetSummarizedDocQuery, useUpdateSummarizedDocMutation } from '../SummarizerApi';
 import BasicTabs, { BasicTabsProps } from '../sumdoc/SumdocTabs';
-import SummaryCard from './SummaryCard';
+import SummaryCardMock from './SummaryCardMock';
 import SumdocEvalChart from './SumdocEvalChart';
 /**
  * The Sumdoc page.
@@ -56,22 +56,28 @@ function Sumdoc() {
 	const [activeTab, setActiveTab] = useState(0);
 	const tabContents = [
 		/* Content for 'Document' */
-		<>hello</>,
+		<>Upon my death there are any life insurance policies on my life which name the trust under this Article SIXTH as the beneficiary,
+			I give the proceeds of such insurance to be held and disposed of for the benefit of my son JOHN WASHINGTON and my daughter SALLY WASHINGTON (hereinafter referred to as the "Beneficiaries")
+			in accordance with the following provisions: If all of the Beneficiaries are the age of twenty-one (21) years or older
+			at the time of my death the insurance proceeds shall be paid and distributed to the then living Beneficiaries in equal shares free of trust.
+			If any Beneficiary is under the age of twenty-one (21) years at the time of my death the insurance proceeds shall not vest in any of said
+			Beneficiaries but instead shall be given to my trustees, IN TRUST, as a single trust for the benefit of said Beneficiaries. My trustees shall hold,
+			manage, invest and reinvest the trust assets, shall collect the income therefrom and, after deducting all charges and expenses properly attributable thereto,
+			may pay to, or for the benefit of, any one or more of the Beneficiaries, at any time and from time to time, all or any part of the net income and/or
+			principal of this trust as my trustees shall deem advisable, in the absolute discretion of my trustees, without requirement of equality.
+			Any income not so paid or applied shall be accumulated and added to the principal of this trust at least annually.
+			When all of the Beneficiaries are the age of twenty-one (21) years or older the trust assets then remaining, if any, shall be paid and distributed to the
+			Beneficiaries in equal shares free of trust and without adjustment for amounts previous distributed to each Beneficiary.</>,
 		/* Content for 'Summaries' */
 		<>
 			<div style={{ display: 'flex' }}>
 				<div style={{ flex: 1, marginRight: '10px' }}>
-					<SummaryCard />
+					<SummaryCardMock />
 
 				</div>
 				<div style={{ flex: 1 }}>
-					<SummaryCard />
+					<SummaryCardMock />
 				</div>
-			</div>
-			<Divider />
-			<h3>Evaluation</h3>
-			<div style={{ display: "flex", width: "100%" }}>
-				<SumdocEvalChart />
 			</div>
 		</>
 	];
