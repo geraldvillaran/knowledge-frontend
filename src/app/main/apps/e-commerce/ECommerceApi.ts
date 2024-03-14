@@ -129,6 +129,17 @@ export type EcommerceProductImageType = {
 	type: string;
 };
 
+type SummaryModel = {
+	model: string;
+	summary: string;
+};
+
+export type SummaryType = {
+	summary_a: SummaryModel[];
+	summary_b: SummaryModel[];
+};
+
+
 export type EcommerceProduct = {
 	id: string;
 	name: string;
@@ -159,6 +170,7 @@ export type EcommerceProduct = {
 	featured: boolean;
 	progress: { currentStep: string, completed: string }[];
 	steps: { order: number, title: string, subtitle: string, content: string }[];
+	summaries: SummaryType[];
 };
 
 export type EcommerceOrder = {

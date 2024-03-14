@@ -35,7 +35,8 @@ const ProductModel = (data: PartialDeep<EcommerceProduct>) =>
 		updatedAt: '',
 		featured: false,
 		progress: [],
-		steps: []
+		steps: [],
+		summaries: []
 	});
 
 export default ProductModel;

@@ -142,22 +142,6 @@ function Product() {
 								className="h-64"
 								label="Summaries"
 							/>
-							// <Tab
-							// 	className="h-64"
-							// 	label="Product Images"
-							// />
-							// <Tab
-							// 	className="h-64"
-							// 	label="Pricing"
-							// />
-							// <Tab
-							// 	className="h-64"
-							// 	label="Inventory"
-							// />
-							// <Tab
-							// 	className="h-64"
-							// 	label="Shipping"
-							/>
 						</Tabs>
 						<div className="p-16 sm:p-24">
 							<div className={tabValue !== 0 ? 'hidden' : ''}>
@@ -165,31 +149,21 @@ function Product() {
 							</div>
 							<div className={tabValue !== 1 ? 'hidden' : ''}>
 								<div style={{ display: 'flex' }}>
-									<div style={{ flex: 1, marginRight: '10px' }}>
-										<SummaryCard />
+									{product?.summaries.map((summary, index) => {
+										// Extract key and value pairs from the summary object (summary_a, summary_b, etc.)
+										// Assuming there's only one key-value pair per summary object in the array
+										const [key, valueArray] = Object.entries(summary)[0];
+										// Assuming valueArray always contains at least one item and we're interested in the first one
+										const { model, summary: summaryText } = valueArray[0]; // Renamed to summaryText
 
-									</div>
-									<div style={{ flex: 1 }}>
-										<SummaryCard />
-									</div>
+										return (
+											<div key={index} style={{ flex: 1, marginRight: index < product.summaries.length - 1 ? '10px' : '0' }}>
+												<SummaryCard model={model} summary={summaryText} /> {/* Use summaryText here */}
+											</div>
+										);
+									})}
 								</div>
 							</div>
-
-							{/* <div className={tabValue !== 1 ? 'hidden' : ''}>
-								<ProductImagesTab />
-							</div>
-
-							<div className={tabValue !== 2 ? 'hidden' : ''}>
-								<PricingTab />
-							</div>
-
-							<div className={tabValue !== 3 ? 'hidden' : ''}>
-								<InventoryTab />
-							</div>
-
-							<div className={tabValue !== 4 ? 'hidden' : ''}>
-								<ShippingTab />
-							</div> */}
 						</div>
 					</>
 				}
