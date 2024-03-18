@@ -12,6 +12,8 @@ import {
 	useDeleteECommerceProductMutation,
 	useUpdateECommerceProductMutation
 } from '../ECommerceApi';
+import React, { useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress'
 
 /**
  * The product header.
@@ -33,11 +35,30 @@ function ProductHeader() {
 
 	const { name, images, featuredImageId } = watch() as EcommerceProduct;
 
-	function handleSaveProduct() {
-		saveProduct(getValues() as EcommerceProduct);
-	}
+	const [loading, setLoading] = useState(false);
+	const [saved, setSaved] = useState(false);
 
-	function handleCreateProduct() {
+	const handleSaveProduct = async () => {
+		setLoading(true);
+		try {
+			await saveProduct(getValues() as EcommerceProduct).unwrap();
+			// Successfully saved
+			setSaved(true);
+			setTimeout(() => {
+				// Reset states after showing "Saved" for a brief period
+				setSaved(false);
+				setLoading(false);
+			}, 2000);
+		} catch (error) {
+			console.error('Save product failed:', error);
+			// Handle error appropriately
+			setLoading(false);
+		}
+	};
+
+	const handleCreateProduct = async () => {
+		setLoading(true); // Start loading
+		setSaved(false); // Reset saved state
 		const productValues = getValues() as EcommerceProduct;
 
 		// Define hardcoded values for new fields
@@ -73,13 +94,20 @@ function ProductHeader() {
 		// Merge the hardcoded values with the product data
 		const mergedData = { ...productValues, ...newFieldValues };
 
-		console.log('Creating product with values:', mergedData);
-		createProduct(mergedData)
-			.unwrap()
-			.then((data) => {
-				navigate(`/apps/e-commerce/products/${data.id}`);
-			});
-	}
+		try {
+			const data = await createProduct(mergedData).unwrap();
+			console.log('Creating product with values:', mergedData);
+			navigate(`/apps/e-commerce/products/${data.id}`);
+			setSaved(true); // Mark as saved
+			setTimeout(() => {
+				setSaved(false); // Reset saved state
+				setLoading(false); // End loading
+			}, 2000);
+		} catch (error) {
+			console.error('Creating product failed:', error);
+			setLoading(false); // Ensure loading is stopped on error
+		}
+	};
 
 	function handleRemoveProduct() {
 		removeProduct(productId);
@@ -153,34 +181,56 @@ function ProductHeader() {
 			>
 				{productId !== 'new' ? (
 					<>
+						{!loading && (
+							<Button
+								className="whitespace-nowrap mx-4"
+								variant="contained"
+								color="secondary"
+								onClick={handleRemoveProduct}
+								startIcon={<FuseSvgIcon className="hidden sm:flex">heroicons-outline:trash</FuseSvgIcon>}
+							>
+								Remove
+							</Button>
+						)}
 						<Button
 							className="whitespace-nowrap mx-4"
 							variant="contained"
 							color="secondary"
-							onClick={handleRemoveProduct}
-							startIcon={<FuseSvgIcon className="hidden sm:flex">heroicons-outline:trash</FuseSvgIcon>}
-						>
-							Remove
-						</Button>
-						<Button
-							className="whitespace-nowrap mx-4"
-							variant="contained"
-							color="secondary"
-							disabled={_.isEmpty(dirtyFields) || !isValid}
+							disabled={loading || _.isEmpty(dirtyFields) || !isValid}
 							onClick={handleSaveProduct}
 						>
-							Save
+							{loading ? (
+								<>
+									<CircularProgress size={14} color="inherit" />
+									&nbsp;Summarizing...
+								</>
+							) : saved ? (
+								"Summarized"
+							) : (
+								"Summarize"
+							)}
+
 						</Button>
+
 					</>
 				) : (
 					<Button
 						className="whitespace-nowrap mx-4"
 						variant="contained"
 						color="secondary"
-						disabled={_.isEmpty(dirtyFields) || !isValid}
+						disabled={loading || _.isEmpty(dirtyFields) || !isValid}
 						onClick={handleCreateProduct}
 					>
-						Save
+						{loading ? (
+							<>
+								<CircularProgress size={14} color="inherit" />
+								&nbsp;Summarizing...
+							</>
+						) : saved ? (
+							"Summarized"
+						) : (
+							"Summarize"
+						)}
 					</Button>
 				)}
 			</motion.div>

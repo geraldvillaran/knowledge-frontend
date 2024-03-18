@@ -97,7 +97,7 @@ function Product() {
 					color="text.secondary"
 					variant="h5"
 				>
-					There is no such product!
+					There is no such document!
 				</Typography>
 				<Button
 					className="mt-24"
@@ -106,7 +106,7 @@ function Product() {
 					to="/apps/e-commerce/products"
 					color="inherit"
 				>
-					Go to Products Page
+					Go to Documents Page
 				</Button>
 			</motion.div>
 		);

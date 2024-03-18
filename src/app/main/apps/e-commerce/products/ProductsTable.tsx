@@ -67,22 +67,19 @@ function ProductsTable() {
 				header: 'Category',
 				accessorFn: (row) => (
 					<div className="flex flex-wrap space-x-2">
-						{row.categories.map((item) => (
-							<Chip
-								key={item}
-								className="text-11"
-								size="small"
-								color="default"
-								label={item}
-							/>
-						))}
+						<Chip
+							className="text-11"
+							size="small"
+							color="default"
+							label='Contracts'
+						/>
 					</div>
 				)
 			},
 			{
 				accessorKey: 'priceTaxIncl',
 				header: 'Token Size',
-				accessorFn: (row) => `${row.priceTaxIncl}`
+				accessorFn: (row) => `256`
 			},
 			{
 				accessorKey: 'quantity',

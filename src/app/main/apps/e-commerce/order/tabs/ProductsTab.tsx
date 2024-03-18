@@ -50,7 +50,7 @@ function ProductsTab() {
 							<td>
 								<Typography
 									component={Link}
-									to={`/apps/e-commerce/products/${product.id}`}
+									to={`/apps/summarizer/documents/${product.id}`}
 									className="truncate"
 									style={{
 										color: 'inherit',

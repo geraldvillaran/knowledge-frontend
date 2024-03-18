@@ -21,15 +21,6 @@ const navigationConfig: FuseNavItemType[] = [
 		// translate: 'APPLICATIONS',
 		children: [
 			{
-				id: 'apps.example',
-				title: 'Example',
-				type: 'item',
-				icon: 'heroicons-outline:star',
-				// url: '/apps/academy',
-				url: 'example',
-				// translate: 'SUMMARIZER'
-			},
-			{
 				id: 'apps.e-commerce',
 				title: 'Summarizer v1',
 				type: 'item',

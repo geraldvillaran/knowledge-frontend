@@ -311,7 +311,7 @@ function Sumdocs() {
 						))}
 				</ div>
 			}
-			scroll={isMobile ? 'normal' : 'page'}
+			scroll={isMobile ? 'normal' : 'normal'}
 		/>
 	);
 }
