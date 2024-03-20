@@ -12,14 +12,12 @@ const Root = styled('div')(({ theme }) => ({
 	color: theme.palette.text.primary,
 
 	'& ::-webkit-scrollbar-thumb': {
-		boxShadow: `inset 0 0 0 20px ${
-			theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
-		}`
+		boxShadow: `inset 0 0 0 20px ${theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
+			}`
 	},
 	'& ::-webkit-scrollbar-thumb:active': {
-		boxShadow: `inset 0 0 0 20px ${
-			theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
-		}`
+		boxShadow: `inset 0 0 0 20px ${theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
+			}`
 	}
 }));
 
@@ -64,7 +62,7 @@ function NavbarMobileLayout3(props: NavbarMobileLayout3Props) {
 				<div className="flex-0 flex items-center justify-center py-48 opacity-10">
 					<img
 						className="w-full max-w-64"
-						src="assets/images/logo/logo.svg"
+						src="assets/images/logo/kr-logo.svg"
 						alt="footer logo"
 					/>
 				</div>

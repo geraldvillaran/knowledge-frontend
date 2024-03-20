@@ -23,10 +23,11 @@ function Logo() {
 		<Root className="flex items-center">
 			<img
 				className="logo-icon h-32 w-32"
-				src="assets/images/logo/logo.svg"
+				src="assets/images/logo/kr-logo.svg"
 				alt="logo"
 			/>
-			<div className="flex space-x-6 px-8 items-center">
+			nowledge Research Inc.
+			{/* <div className="flex space-x-6 px-8 items-center">
 				<div
 					className="badge flex items-end justify-end rounded-4 w-24 h-24 px-3"
 					style={{
@@ -60,7 +61,7 @@ function Logo() {
 					/>
 					<span className="react-text text-12 font-semibold">React</span>
 				</div>
-			</div>
+			</div> */}
 		</Root>
 	);
 }
