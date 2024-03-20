@@ -105,7 +105,7 @@ function Courses() {
 								color="inherit"
 								className="text-18 font-semibold"
 							>
-								KNOWLEDGE RESEARCH
+								KNOWLEDGE RESEARCH INC.
 							</Typography>
 						</motion.div>
 						<motion.div
@@ -116,7 +116,7 @@ function Courses() {
 								color="inherit"
 								className="text-center text-32 sm:text-48 font-extrabold tracking-tight mt-4"
 							>
-								Legal Documents Summarization
+								Legal Summarization Foundation Model
 							</Typography>
 						</motion.div>
 						<motion.div

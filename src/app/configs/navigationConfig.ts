@@ -38,6 +38,15 @@ const navigationConfig: FuseNavItemType[] = [
 				url: '/apps/summarizer',
 				// translate: 'SUMMARIZER'
 			},
+			{
+				id: 'apps.academy',
+				title: 'Summarizer v3',
+				type: 'item',
+				icon: 'heroicons-outline:book-open',
+				// url: '/apps/academy',
+				url: '/apps/academy',
+				// translate: 'SUMMARIZER'
+			},
 		]
 	},
 	{
