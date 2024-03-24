@@ -15,6 +15,8 @@ const Root = styled('div')(({ theme }) => ({
 	}
 }));
 
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
 /**
  * The logo component.
  */
@@ -23,7 +25,7 @@ function Logo() {
 		<Root className="flex items-center">
 			<img
 				className="logo-icon h-32 w-32"
-				src="assets/images/logo/kr-logo.svg"
+				src={`assets/images/logo/${appLogo}`}
 				alt="logo"
 			/>
 			nowledge Research Inc.

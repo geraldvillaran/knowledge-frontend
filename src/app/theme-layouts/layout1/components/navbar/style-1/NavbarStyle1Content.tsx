@@ -34,6 +34,8 @@ type NavbarStyle1ContentProps = {
 	className?: string;
 };
 
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
 /**
  * The navbar style 1 content.
  */
@@ -61,7 +63,7 @@ function NavbarStyle1Content(props: NavbarStyle1ContentProps) {
 				<div className="flex-0 flex items-center justify-center py-48 opacity-10">
 					<img
 						className="w-full max-w-64"
-						src="assets/images/logo/kr-logo.svg"
+						src={`assets/images/logo/${appLogo}`}
 						alt="footer logo"
 					/>
 				</div>

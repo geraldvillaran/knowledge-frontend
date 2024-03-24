@@ -15,6 +15,10 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import JwtLoginTab from './tabs/JwtSignInTab';
 import FirebaseSignInTab from './tabs/FirebaseSignInTab';
 
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
+console.log(import.meta.env); // This will show all environment variables
+console.log(appLogo);
 const tabs = [
 	{
 		id: 'jwt',
@@ -40,13 +44,15 @@ function SignInPage() {
 		setSelectedTabId(id);
 	}
 
+	// const logo = process.env.APP_LOGO;
+	// console.log(logo);
 	return (
 		<div className="flex min-w-0 flex-1 flex-col items-center sm:flex-row sm:justify-center md:items-start md:justify-start">
 			<Paper className="h-full w-full px-16 py-8 ltr:border-r-1 rtl:border-l-1 sm:h-auto sm:w-auto sm:rounded-2xl sm:p-48 sm:shadow md:flex md:h-full md:w-1/2 md:items-center md:justify-end md:rounded-none md:p-64 md:shadow-none">
 				<CardContent className="mx-auto w-full max-w-320 sm:mx-0 sm:w-320">
 					<img
 						className="w-48"
-						src="assets/images/logo/kr-logo.svg"
+						src={`assets/images/logo/${appLogo}`}
 						alt="logo"
 					/>
 					Knowledge Research Inc.

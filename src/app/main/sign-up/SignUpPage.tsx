@@ -26,6 +26,8 @@ const tabs = [
 	}
 ];
 
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
 /**
  * The sign up page.
  */
@@ -42,7 +44,7 @@ function SignUpPage() {
 				<div className="mx-auto w-full max-w-320 sm:mx-0 sm:w-320">
 					<img
 						className="w-48"
-						src="assets/images/logo/kr-logo.svg"
+						src={`assets/images/logo/${appLogo}`}
 						alt="logo"
 					/>
 					Knowledge Research Inc.

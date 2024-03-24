@@ -6,13 +6,16 @@ import Box from '@mui/material/Box';
  * It uses various MUI components to render the logo and spinner.
  * The component is memoized to prevent unnecessary re-renders.
  */
+
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
 function FuseSplashScreen() {
 	return (
 		<div id="fuse-splash-screen">
 			<div className="logo">
 				<img
 					width="128"
-					src="assets/images/logo/kr-logo.svg"
+					src={`assets/images/logo/${appLogo}`}
 					alt="logo"
 				/>
 			</div>

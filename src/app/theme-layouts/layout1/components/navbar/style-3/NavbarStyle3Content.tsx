@@ -20,6 +20,8 @@ const Root = styled('div')(({ theme }) => ({
 	color: theme.palette.text.primary
 }));
 
+const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
+
 type StyledPanelProps = {
 	theme?: Theme;
 	opened?: boolean;
@@ -112,7 +114,7 @@ function NavbarStyle3Content(props: NavbarStyle3ContentProps) {
 					>
 						<img
 							className="my-32 w-44"
-							src="assets/images/logo/kr-logo.svg"
+							src={`assets/images/logo/${appLogo}`}
 							alt="logo"
 						/>
 

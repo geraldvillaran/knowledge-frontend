@@ -8,6 +8,7 @@ interface ImportMetaEnv {
 	readonly VITE_PROJECT_ID: string;
 	readonly VITE_STORAGE_BUCKET: string;
 	readonly VITE_MESSAGING_SENDER_ID: string;
+	readonly REACT_APP_LOGO: string;
 }
 
 interface ImportMeta {
