@@ -31,9 +31,9 @@ const navigationConfig: FuseNavItemType[] = [
 			},
 			{
 				id: 'apps.academy',
-				title: 'Summarizer v3',
+				title: 'Legal Summarization',
 				type: 'item',
-				icon: 'heroicons-outline:book-open',
+				icon: 'heroicons-outline:document-text',
 				// url: '/apps/academy',
 				url: '/apps/academy',
 				// translate: 'SUMMARIZER'
