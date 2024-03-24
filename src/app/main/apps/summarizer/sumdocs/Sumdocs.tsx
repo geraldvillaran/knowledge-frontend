@@ -12,20 +12,10 @@ import Switch from '@mui/material/Switch';
 import { FormControlLabel } from '@mui/material';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import { Theme } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import FuseLoading from '@fuse/core/FuseLoading';
-import { Fragment } from 'react';
-import { closeDialog, openDialog } from '@fuse/core/FuseDialog/fuseDialogSlice';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import SumdocCard from './SumdocCard';
-import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery } from '../SummarizerApi';
+import CourseCard from '../../academy/courses/CourseCard';
+import { Course, useGetAcademyCategoriesQuery, useGetAcademyCoursesQuery } from '../../academy/AcademyApi';
 
 const container = {
 	show: {
@@ -47,37 +37,26 @@ const item = {
 };
 
 /**
- * The Sumdocs page.
+ * The Courses page.
  */
-function Sumdocs() {
-	const { data: sumdocs, isLoading } = useGetSummarizedDocsQuery();
-	const { data: categories } = useGetSumdocCategoriesQuery();
+function Courses() {
+	const { data: courses, isLoading } = useGetAcademyCoursesQuery();
+	const { data: categories } = useGetAcademyCategoriesQuery();
 
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
-	const [filteredData, setFilteredData] = useState<Sumdoc[]>(sumdocs);
+	const [filteredData, setFilteredData] = useState<Course[]>(courses);
 	const [searchText, setSearchText] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [hideCompleted, setHideCompleted] = useState(false);
-	const dispatch = useAppDispatch();
-
-	const [open, setOpen] = useState(false);
-
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-	};
 
 	useEffect(() => {
 		function getFilteredArray() {
-			if (sumdocs && searchText.length === 0 && selectedCategory === 'all' && !hideCompleted) {
-				return sumdocs;
+			if (courses && searchText.length === 0 && selectedCategory === 'all' && !hideCompleted) {
+				return courses;
 			}
 
-			return _.filter(sumdocs, (item) => {
+			return _.filter(courses, (item) => {
 				if (selectedCategory !== 'all' && item.category !== selectedCategory) {
 					return false;
 				}
@@ -90,10 +69,10 @@ function Sumdocs() {
 			});
 		}
 
-		if (sumdocs) {
+		if (courses) {
 			setFilteredData(getFilteredArray());
 		}
-	}, [sumdocs, hideCompleted, searchText, selectedCategory]);
+	}, [courses, hideCompleted, searchText, selectedCategory]);
 
 	function handleSelectedCategory(event: SelectChangeEvent<string>) {
 		setSelectedCategory(event.target.value);
@@ -138,7 +117,6 @@ function Sumdocs() {
 								className="text-center text-32 sm:text-48 font-extrabold tracking-tight mt-4"
 							>
 								Legal Summarization Foundation Model
-
 							</Typography>
 						</motion.div>
 						<motion.div
@@ -212,7 +190,7 @@ function Sumdocs() {
 								</Select>
 							</FormControl>
 							<TextField
-								label="Search for a sumdoc"
+								label="Search for a course"
 								placeholder="Enter a keyword..."
 								className="flex w-full sm:w-256 mx-8"
 								value={searchText}
@@ -226,48 +204,8 @@ function Sumdocs() {
 								}}
 							/>
 						</div>
-						<FormControl>
-							<Button
-								onClick={handleClickOpen}
-								className="px-16 min-w-128"
-								color="success"
-								variant="contained"
-								endIcon={<FuseSvgIcon size={20}>heroicons-solid:plus-circle</FuseSvgIcon>}
-							>
-								Add New Document
-							</Button>
-							<Dialog
-								fullWidth={true}
-								maxWidth={'md'}
-								open={open}
-								onClose={handleClose}
-							>
-								<DialogTitle>New Document</DialogTitle>
-								<DialogContent>
-									<DialogContentText
-										sx={{ paddingBottom: "20px" }}
-									>
-										Word Count: --
-									</DialogContentText>
-									<TextField
-										id="outlined-multiline-static"
-										multiline
-										rows={30}
-										fullWidth
-									/>
-								</DialogContent>
-								<DialogActions
-									sx={{ padding: "25px" }}
-								>
-									<Button onClick={handleClose}>Close</Button>
-									<Button
-										color="success"
-										variant="contained"
-									>Summarize</Button>
-								</DialogActions>
-							</Dialog>
-						</FormControl>
-						{/* <FormControlLabel
+
+						<FormControlLabel
 							label="Hide completed"
 							control={
 								<Switch
@@ -278,8 +216,7 @@ function Sumdocs() {
 									name="hideCompleted"
 								/>
 							}
-
-						/> */}
+						/>
 					</div>
 					{filteredData &&
 						(filteredData.length > 0 ? (
@@ -289,13 +226,13 @@ function Sumdocs() {
 								initial="hidden"
 								animate="show"
 							>
-								{filteredData.map((sumdoc) => {
+								{filteredData.map((course) => {
 									return (
 										<motion.div
 											variants={item}
-											key={sumdoc.id}
+											key={course.id}
 										>
-											<SumdocCard sumdoc={sumdoc} />
+											<CourseCard course={course} />
 										</motion.div>
 									);
 								})}
@@ -306,15 +243,15 @@ function Sumdocs() {
 									color="text.secondary"
 									className="text-24 my-24"
 								>
-									No sumdocs found!
+									No courses found!
 								</Typography>
 							</div>
 						))}
-				</ div>
+				</div>
 			}
-			scroll={isMobile ? 'normal' : 'normal'}
+			scroll={isMobile ? 'normal' : 'page'}
 		/>
 	);
 }
 
-export default Sumdocs;
+export default Courses;
