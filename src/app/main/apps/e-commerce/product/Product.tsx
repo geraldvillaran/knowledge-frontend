@@ -21,7 +21,7 @@ import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
 import { useGetECommerceProductQuery } from '../ECommerceApi';
 import ProductModel from './models/ProductModel';
-import SummaryCard from '../../summarizer/sumdoc/SummaryCard';
+import SummaryCard from './SummaryCard';
 
 /**
  * Form Validation Schema
