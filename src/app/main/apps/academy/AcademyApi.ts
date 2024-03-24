@@ -4,6 +4,8 @@ import { PartialDeep } from 'type-fest';
 
 export const addTagTypes = ['academy_courses', 'academy_course', 'academy_categories'] as const;
 
+const BASE_URL = 'http://localhost:8000';
+
 const AcademyApi = apiService
 	.enhanceEndpoints({
 		addTagTypes
@@ -11,7 +13,7 @@ const AcademyApi = apiService
 	.injectEndpoints({
 		endpoints: (build) => ({
 			getAcademyCourses: build.query<GetAcademyCoursesApiResponse, GetAcademyCoursesApiArg>({
-				query: () => ({ url: `/mock-api/academy/courses` }),
+				query: () => ({ url: `${BASE_URL}/e-commerce/products` }),
 				providesTags: ['academy_courses']
 			}),
 			getAcademyCourse: build.query<GetAcademyCourseApiResponse, GetAcademyCourseApiArg>({

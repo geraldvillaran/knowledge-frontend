@@ -18,7 +18,7 @@ import FirebaseSignInTab from './tabs/FirebaseSignInTab';
 const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
 
 console.log(import.meta.env); // This will show all environment variables
-console.log(appLogo);
+
 const tabs = [
 	{
 		id: 'jwt',

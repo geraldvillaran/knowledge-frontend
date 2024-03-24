@@ -93,7 +93,7 @@ function Courses() {
 			}
 			content={
 				<>
-					<div>
+					<div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
 						{/* Row 1 */}
 						<div>
 							<Box
