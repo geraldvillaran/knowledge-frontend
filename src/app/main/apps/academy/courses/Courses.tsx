@@ -9,6 +9,9 @@ import { motion } from 'framer-motion';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { FormControlLabel } from '@mui/material';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
@@ -216,15 +219,18 @@ function Courses() {
 									</div>
 
 									<FormControlLabel
-										label="Hide completed"
+										label=""
 										control={
-											<Switch
-												onChange={(ev) => {
-													setHideCompleted(ev.target.checked);
-												}}
-												checked={hideCompleted}
-												name="hideCompleted"
-											/>
+											<Button
+												to={`/apps/academy/courses/#`}
+												component={Link}
+												className="px-16 min-w-128"
+												color="success"
+												variant="contained"
+												endIcon={<FuseSvgIcon size={20}>heroicons-solid:plus-circle</FuseSvgIcon>}
+											>
+												New Document
+											</Button>
 										}
 									/>
 								</div>
