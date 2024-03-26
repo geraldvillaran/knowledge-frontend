@@ -22,7 +22,7 @@ const navigationConfig: FuseNavItemType[] = [
 		children: [
 			{
 				id: 'apps.e-commerce',
-				title: 'Summarizer v1',
+				title: 'Legal Summarization v1',
 				type: 'item',
 				icon: 'heroicons-outline:document-text',
 				// url: '/apps/academy',
@@ -30,14 +30,14 @@ const navigationConfig: FuseNavItemType[] = [
 				// translate: 'SUMMARIZER'
 			},
 			{
-				id: 'apps.academy',
-				title: 'Legal Summarization',
+				id: 'apps.summarizer',
+				title: 'Legal Summarization v3',
 				type: 'item',
 				icon: 'heroicons-outline:document-text',
 				// url: '/apps/academy',
-				url: '/apps/academy',
+				url: '/apps/summarizer',
 				// translate: 'SUMMARIZER'
-			},
+			}
 		]
 	},
 	{
