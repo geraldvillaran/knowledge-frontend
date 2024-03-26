@@ -47,7 +47,7 @@ function jwtSignInTab() {
 	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
-		setValue('email', 'admin@casetext.com', { shouldDirty: true, shouldValidate: true });
+		setValue('email', 'admin@knowledgeresearch.ai', { shouldDirty: true, shouldValidate: true });
 		setValue('password', 'admin', { shouldDirty: true, shouldValidate: true });
 	}, [setValue]);
 

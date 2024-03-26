@@ -87,43 +87,43 @@ function Sumdoc() {
 	};
 
 
-	useEffect(() => {
-		/**
-		 * If the sumdoc is opened for the first time
-		 * Change ActiveStep to 1
-		 */
-		if (sumdoc && sumdoc?.progress?.currentStep === 0) {
-			updateSumdoc({ sumdocId, data: { progress: { currentStep: 1 } } });
-		}
-	}, [sumdoc]);
+	// useEffect(() => {
+	// 	/**
+	// 	 * If the sumdoc is opened for the first time
+	// 	 * Change ActiveStep to 1
+	// 	 */
+	// 	if (sumdoc && sumdoc?.progress?.currentStep === 0) {
+	// 		updateSumdoc({ sumdocId, data: { progress: { currentStep: 1 } } });
+	// 	}
+	// }, [sumdoc]);
 
-	useEffect(() => {
-		setLeftSidebarOpen(!isMobile);
-	}, [isMobile]);
+	// useEffect(() => {
+	// 	setLeftSidebarOpen(!isMobile);
+	// }, [isMobile]);
 
-	const currentStep = sumdoc?.progress?.currentStep || 0;
+	// const currentStep = sumdoc?.progress?.currentStep || 0;
 
-	function updateCurrentStep(index: number) {
-		if (sumdoc && (index > sumdoc.totalSteps || index < 0)) {
-			return;
-		}
+	// function updateCurrentStep(index: number) {
+	// 	if (sumdoc && (index > sumdoc.totalSteps || index < 0)) {
+	// 		return;
+	// 	}
 
-		// updateSumdoc({ sumdocId, data: { progress: { currentStep: index } } });
-	}
+	// 	// updateSumdoc({ sumdocId, data: { progress: { currentStep: index } } });
+	// }
 
-	function handleNext() {
-		updateCurrentStep(currentStep + 1);
-	}
+	// function handleNext() {
+	// 	updateCurrentStep(currentStep + 1);
+	// }
 
-	function handleBack() {
-		updateCurrentStep(currentStep - 1);
-	}
+	// function handleBack() {
+	// 	updateCurrentStep(currentStep - 1);
+	// }
 
-	function handleStepChange(index: number) {
-		updateCurrentStep(index + 1);
-	}
+	// function handleStepChange(index: number) {
+	// 	updateCurrentStep(index + 1);
+	// }
 
-	const activeStep = currentStep !== 0 ? currentStep : 1;
+	// const activeStep = currentStep !== 0 ? currentStep : 1;
 
 	if (isLoading) {
 		return <FuseLoading />;

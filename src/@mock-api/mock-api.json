@@ -17778,7 +17778,7 @@
             "id": "02f42092-bb23-4552-9ddb-cfdcc235d48f",
             "title": "Leases",
             "slug": "leases",
-            "color": "#607d8b"
+            "color": "#7F6A93"
           },
           {
             "id": "5648a630-979f-4403-8c41-fc9790dea8cd",
@@ -32848,7 +32848,7 @@
             "data": {
               "displayName": "Joy Marie Fabregas",
               "photoURL": "assets/images/avatars/kath.jpg",
-              "email": "admin@casetext.com",
+              "email": "admin@knowledgeresearch.ai",
               "settings": {
                 "layout": {},
                 "theme": {}

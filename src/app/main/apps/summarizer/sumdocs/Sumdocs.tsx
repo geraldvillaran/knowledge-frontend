@@ -82,9 +82,9 @@ function Sumdocs() {
 					return false;
 				}
 
-				if (hideCompleted && item.progress.completed > 0) {
-					return false;
-				}
+				// if (hideCompleted && item.progress.completed > 0) {
+				// 	return false;
+				// }
 
 				return item.title.toLowerCase().includes(searchText.toLowerCase());
 			});
@@ -216,7 +216,7 @@ function Sumdocs() {
 											</Select>
 										</FormControl>
 										<TextField
-											label="Search for a sumdoc"
+											label="Search for a Document"
 											placeholder="Enter a keyword..."
 											className="flex w-full sm:w-256 mx-8"
 											value={searchText}

@@ -24,15 +24,12 @@ function SumdocInfo(props: SumdocInfoProps) {
 		<div className={clsx('w-full', className)}>
 			<div className="flex items-center justify-between mb-16">
 				<SumdocCategory slug={sumdoc.category} />
-				{/* {sumdoc.category} */}
-				{sumdoc.progress.completed > 0 && (
-					<FuseSvgIcon
-						className="text-green-600"
-						size={20}
-					>
-						heroicons-solid:badge-check
-					</FuseSvgIcon>
-				)}
+				<FuseSvgIcon
+					className="text-green-600"
+					size={20}
+				>
+					heroicons-solid:badge-check
+				</FuseSvgIcon>
 			</div>
 
 			<Typography className="text-16 font-medium">{sumdoc.title}</Typography>
@@ -71,12 +68,12 @@ function SumdocInfo(props: SumdocInfoProps) {
 				>
 					heroicons-solid:academic-cap
 				</FuseSvgIcon>
-				<span className="whitespace-nowrap leading-none">
+				{/* <span className="whitespace-nowrap leading-none">
 					{sumdoc.progress.completed === 1 && 'Completed once'}
 					{sumdoc.progress.completed === 2 && 'Completed twice'}
 					{sumdoc.progress.completed > 2 && `Completed ${sumdoc.progress.completed} times`}
 					{sumdoc.progress.completed <= 0 && 'Never completed'}
-				</span>
+				</span> */}
 			</Typography>
 		</div>
 	);

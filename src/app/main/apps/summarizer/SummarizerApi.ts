@@ -13,12 +13,12 @@ const SummarizerApi = apiService
 	.injectEndpoints({
 		endpoints: (build) => ({
 			getSummarizedDocs: build.query<GetSummarizedDocsApiResponse, GetSummarizedDocsApiArg>({
-				query: () => ({ url: `${BASE_URL}/e-commerce/products` }),
+				query: () => ({ url: `${BASE_URL}/summarizer/sumdocs` }),
 				providesTags: ['academy_courses']
 			}),
 			getSummarizedDoc: build.query<GetSummarizedDocApiResponse, GetSummarizedDocApiArg>({
 				// query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
-				query: (queryArg) => ({ url: `${BASE_URL}/e-commerce/products/${queryArg.sumdocId}` }),
+				query: (queryArg) => ({ url: `${BASE_URL}/summarizer/sumdocs/${queryArg.sumdocId}` }),
 				providesTags: ['academy_course']
 			}),
 			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
@@ -73,27 +73,54 @@ export type DeleteSummarizedDocApiArg = {
 
 export type GetSumdocCategoriesApiResponse = /** status 200 OK */ Category[];
 export type GetSumdocCategoriesApiArg = void;
+
+export type EcommerceProductImageType = {
+	id: string;
+	url: string;
+	type: string;
+};
+
+type SummaryModel = {
+	model: string;
+	summary: string;
+};
+
+export type SummaryType = {
+	summary_a: SummaryModel[];
+	summary_b: SummaryModel[];
+};
+
 export type Sumdoc = {
 	id: string;
-	title: string;
-	slug: string;
+	name: string;
+	handle: string;
 	description: string;
 	category: string;
+	categories: string[];
+	tags: string[];
+	featuredImageId: string;
+	images: EcommerceProductImageType[];
+	priceTaxExcl: number;
+	priceTaxIncl: number;
+	taxRate: number;
+	comparedPrice: number;
+	quantity: number;
+	sku: string;
+	width: string;
+	height: string;
+	depth: string;
+	weight: string;
+	extraShippingFee: number;
+	active: boolean;
+	title: string;
+	slug: string;
 	duration: number;
 	totalSteps: number;
 	updatedAt: string;
 	featured: boolean;
-	progress: {
-		currentStep: number;
-		completed: number;
-	};
-	activeStep?: number;
-	steps?: {
-		content?: string;
-		title?: string;
-		subtitle?: string;
-		order?: number;
-	}[];
+	progress: { currentStep: string, completed: string }[];
+	steps: { order: number, title: string, subtitle: string, content: string }[];
+	summaries: SummaryType[];
 };
 
 export type Category = {
