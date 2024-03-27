@@ -5,6 +5,7 @@ import { EcommerceProduct } from '../../ECommerceApi';
 /**
  * The product model.
  */
+
 const ProductModel = (data: PartialDeep<EcommerceProduct>) =>
 	_.defaults(data || {}, {
 		id: _.uniqueId('product-'),

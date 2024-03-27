@@ -62,13 +62,16 @@ function ProductHeader() {
 		const productValues = getValues() as EcommerceProduct;
 
 		// Define hardcoded values for new fields
+		const now = new Date();
+		const formattedDateForTitle = now.toISOString().split('T')[0]; // e.g., "2024-03-26"
+		const updatedAt = now.toISOString();
 		const newFieldValues = {
-			title: 'New Document',
-			slug: 'new-product',
+			title: `New Document ${formattedDateForTitle}`,
+			slug: 'new-document',
 			category: 'contracts',
 			duration: 30,
 			totalSteps: 3,
-			updatedAt: '2024-03-12T12:00:00',
+			updatedAt: updatedAt,
 			featured: false,
 			progress: [{ "currentStep": "1", "completed": "50" }],
 			steps: [{

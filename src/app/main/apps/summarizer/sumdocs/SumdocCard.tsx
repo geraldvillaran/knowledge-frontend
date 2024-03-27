@@ -19,16 +19,16 @@ type SumdocCardProps = {
 function SumdocCard(props: SumdocCardProps) {
 	const { sumdoc } = props;
 
-	function buttonStatus() {
-		switch (sumdoc.activeStep) {
-			case sumdoc.totalSteps:
-				return 'Completed';
-			case 0:
-				return 'Start';
-			default:
-				return 'Open';
-		}
-	}
+	// function buttonStatus() {
+	// 	switch (sumdoc.activeStep) {
+	// 		case sumdoc.totalSteps:
+	// 			return 'Completed';
+	// 		case 0:
+	// 			return 'Start';
+	// 		default:
+	// 			return 'Open';
+	// 	}
+	// }
 
 	return (
 		<Card className="flex flex-col h-384 shadow">
@@ -53,7 +53,7 @@ function SumdocCard(props: SumdocCardProps) {
 					variant="contained"
 					endIcon={<FuseSvgIcon size={20}>heroicons-solid:arrow-sm-right</FuseSvgIcon>}
 				>
-					{buttonStatus()}
+					Open
 				</Button>
 			</CardActions>
 		</Card>

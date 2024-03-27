@@ -59,7 +59,7 @@ export default function SummaryCard({ model, summary }) {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button sx={{ padding: "10px" }} size="small">More Action...</Button>
+                        {/* <Button sx={{ padding: "10px" }} size="small">More Action...</Button> */}
                     </CardActions>
                 </React.Fragment>
             </Card>
