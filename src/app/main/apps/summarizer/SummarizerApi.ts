@@ -31,10 +31,10 @@ const SummarizerApi = api
 				invalidatesTags: ['sumdocs', 'sumdoc']
 			}),
 			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
-				query: (queryArg) => ({
-					url: `/mock-api/academy/courses/${queryArg.sumdocId}`,
+				query: (sumdoc) => ({
+					url: `${BASE_URL}/summarizer/sumdocs/${sumdoc.id}`,
 					method: 'PUT',
-					data: queryArg.data
+					data: sumdoc
 				}),
 				async onQueryStarted(id, { dispatch, queryFulfilled }) {
 					try {
@@ -74,10 +74,7 @@ export type CreateSummarizedDocApiResponse = /** status 200 OK */ Sumdoc;
 export type CreateSummarizedDocApiArg = PartialDeep<Sumdoc>;
 
 export type UpdateSummarizedDocApiResponse = unknown;
-export type UpdateSummarizedDocApiArg = {
-	sumdocId: string;
-	data: PartialDeep<Sumdoc>;
-};
+export type UpdateSummarizedDocApiArg = PartialDeep<Sumdoc>;// Document
 
 export type DeleteSummarizedDocApiResponse = unknown;
 export type DeleteSummarizedDocApiArg = {

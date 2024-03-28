@@ -7,7 +7,7 @@ import Stepper from '@mui/material/Stepper';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
-import { Step, StepContent, StepLabel } from '@mui/material';
+import { CardActions, Step, StepContent, StepLabel } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
@@ -27,19 +27,36 @@ import ArticleIcon from '@mui/icons-material/Article';
 import ListItemText from '@mui/material/ListItemText';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
-import { useGetSummarizedDocQuery, useUpdateSummarizedDocMutation } from '../SummarizerApi';
 import BasicTabs, { BasicTabsProps } from '../sumdoc/SumdocTabs';
 import SummaryCardMock from './SummaryCardMock';
 import SummaryCard from './SummaryCard';
 import SumdocEvalChart from './SumdocEvalChart';
 import SumdocModel from './models/SumdocModel';
 import TextField from '@mui/material/TextField';
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import CircularProgress from '@mui/material/CircularProgress';
+import _ from '@lodash';
+import { Controller, useFormContext } from 'react-hook-form';
+import {
+	Sumdoc as SumdocApi,
+	useGetSummarizedDocQuery,
+	useUpdateSummarizedDocMutation
+} from '../SummarizerApi';
 /**
  * The Sumdoc page.
  */
 
 const drawerWidth = 240;
 const icons = [<ArticleIcon />, <SummarizeIcon />, <StackedLineChartIcon />];
+
+/**
+ * Form Validation Schema
+ */
+const schema = z.object({
+	description: z.string().nonempty('You must enter a product name').min(5, 'The product name must be at least 5 characters')
+});
 
 function Sumdoc() {
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
@@ -48,6 +65,7 @@ function Sumdoc() {
 	const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
 	const routeParams = useParams();
 	const { sumdocId } = routeParams;
+
 	const { data: sumdoc, isLoading } = useGetSummarizedDocQuery(
 		{ sumdocId },
 		{
@@ -55,27 +73,187 @@ function Sumdoc() {
 		}
 	);
 
-	const [updateSumdoc] = useUpdateSummarizedDocMutation();
+	const [saveDocument] = useUpdateSummarizedDocMutation();
+
+	const methods = useForm({
+		mode: 'onChange',
+		resolver: zodResolver(schema),
+		defaultValues: {
+			description: '' // Ensure there's a default value to reset to
+		}
+	});
+
+	const { control, formState, reset, watch, getValues } = methods;
+	const form = watch();
+	const { description } = watch() as SumdocApi;
+	const { isValid, dirtyFields } = formState;
 
 	const [activeTab, setActiveTab] = useState(0);
+
+	const [loading, setLoading] = useState(false);
+	const [saved, setSaved] = useState(false);
+	const { errors } = formState;
+
+	useEffect(() => {
+		if (sumdoc) {
+			reset({
+				description: sumdoc.description // Assuming `description` is the correct property
+			});
+		}
+	}, [sumdoc, reset]);
+
+	// const handleSaveDocument = async () => {
+	// 	setLoading(true);
+	// 	setSaved(false); // Reset saved state
+	// 	const formData = getValues();
+	// 	try {
+	// 		await saveDocument(getValues() as SumdocApi).unwrap();
+	// 		// Successfully saved
+	// 		setSaved(true);
+	// 		setTimeout(() => {
+	// 			// Reset states after showing "Saved" for a brief period
+	// 			setSaved(false);
+	// 			setLoading(false);
+	// 		}, 2000);
+	// 	} catch (error) {
+	// 		console.error('Save product failed:', error);
+	// 		// Handle error appropriately
+	// 		setLoading(false);
+	// 		setLoading(false); // Ensure loading is stopped on error
+	// 	}
+	// }
+
+	const handleSaveDocument = async () => {
+		setLoading(true);
+		setSaved(false); // Reset saved state
+		const currentDescription = getValues().description;
+		// Define static data for testing
+		const staticData = {
+			id: sumdocId, // Use the sumdocId from your component's state
+			description: currentDescription,
+			name: "Test Document",
+			handle: "test-document",
+			category: "Test Category",
+			categories: ["Test Category"],
+			tags: ["Test", "Static Data"],
+			featuredImageId: "1",
+			images: [
+				{
+					id: "1",
+					url: "https://example.com/image.jpg",
+					type: "image", // Added 'type' property
+				},
+			],
+			priceTaxExcl: 100,
+			priceTaxIncl: 110,
+			taxRate: 10,
+			comparedPrice: 120,
+			quantity: 50,
+			sku: "TESTSKU123",
+			width: "10cm",
+			height: "20cm",
+			depth: "5cm",
+			weight: "1kg",
+			extraShippingFee: 5,
+			active: true,
+			title: "Test Document Title",
+			slug: "test-document-title",
+			duration: 120,
+			totalSteps: 3,
+			updatedAt: "2024-01-01T00:00:00Z",
+			featured: false,
+			progress: [
+				{ currentStep: "1", completed: "50%" }
+			],
+			steps: [
+				{
+					order: 1,
+					title: "Step 1",
+					subtitle: "Introduction",
+					content: "This is the content of Step 1.",
+				},
+			],
+			summaries: [
+				{
+					summary_a: [
+						{
+							model: "Model A",
+							summary: "Summary from Model A",
+						},
+					],
+					summary_b: [
+						{
+							model: "Model B",
+							summary: "Summary from Model B",
+						},
+					],
+				},
+			],
+		};
+
+		try {
+			console.log("Saving document with static data:", staticData);
+			await saveDocument(staticData).unwrap();
+
+			setSaved(true);
+			setTimeout(() => {
+				setSaved(false);
+				setLoading(false);
+			}, 2000);
+		} catch (error) {
+			console.error('Save document failed:', error);
+			setLoading(false);
+		}
+	};
+
 	const tabContents = [
 		/* Content for 'Document' */
 
 		<>
-			<Button color="success">Edit</Button>
-			<TextField
-				fullWidth
-				variant="outlined"
-				value={sumdoc?.description}
-				multiline={true}
-				rows={30}
-				InputProps={{
-					style: {
-						lineHeight: '1.5', // Adjust the line spacing as needed
-					},
-				}}
-			// onChange={ } // You need to implement this function
-			/>
+			<FormProvider {...methods}>
+				<Controller
+					name="description"
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field} // Spread the field props to TextField
+							fullWidth
+							variant="outlined"
+							id="description"
+							multiline={true}
+							type="text"
+							label="Document Text"
+							rows={30}
+							InputProps={{
+								style: {
+									lineHeight: '1.5', // Adjust the line spacing as needed
+								},
+							}}
+						/>
+					)}
+				/>
+				<CardActions>
+					<Button
+						className="whitespace-nowrap mx-4"
+						variant="contained"
+						color="secondary"
+						disabled={loading || _.isEmpty(dirtyFields) || !isValid}
+						onClick={handleSaveDocument}
+					>
+						{loading ? (
+							<>
+								<CircularProgress size={14} color="inherit" />
+								&nbsp;Summarizing...
+							</>
+						) : saved ? (
+							"Summarized"
+						) : (
+							"Summarize"
+						)}
+					</Button>
+				</CardActions>
+			</FormProvider>
+
 		</>,
 		/* Content for 'Summaries' */
 		<>
@@ -100,6 +278,7 @@ function Sumdoc() {
 	const handleTabChange = (index: number) => {
 		setActiveTab(index);
 	};
+
 
 
 	// useEffect(() => {
