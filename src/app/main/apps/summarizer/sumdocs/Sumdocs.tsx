@@ -32,11 +32,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import SumdocCard from './SumdocCard';
-import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery } from '../SummarizerApi';
+import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery, useCreateSummarizedDocMutation } from '../SummarizerApi';
 
 import CircularProgress from '@mui/material/CircularProgress';
-
-import { EcommerceProduct, useGetECommerceProductsQuery, useCreateECommerceProductMutation } from '../../e-commerce/ECommerceApi';
 /**
  * Form Validation Schema
  */
@@ -68,7 +66,7 @@ const item = {
  * The Sumdocs page.
  */
 function Sumdocs() {
-	const { data: sumdocs, isLoading } = useGetECommerceProductsQuery();
+	const { data: sumdocs, isLoading } = useGetSummarizedDocsQuery();
 	const { data: categories } = useGetSumdocCategoriesQuery();
 
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
@@ -79,7 +77,7 @@ function Sumdocs() {
 	const [hideCompleted, setHideCompleted] = useState(false);
 	const dispatch = useAppDispatch();
 
-	const [createProduct] = useCreateECommerceProductMutation();
+	const [createProduct] = useCreateSummarizedDocMutation();
 
 	const [open, setOpen] = useState(false);
 
@@ -100,7 +98,7 @@ function Sumdocs() {
 	const { formState, watch, getValues } = methods;
 	const { isValid, dirtyFields } = formState;
 
-	const { description } = watch() as EcommerceProduct;
+	const { description } = watch() as Sumdoc;
 
 	const [loading, setLoading] = useState(false);
 	const [saved, setSaved] = useState(false);
@@ -112,7 +110,7 @@ function Sumdocs() {
 	const handleCreateDocument = async () => {
 		setLoading(true); // Start loading
 		setSaved(false); // Reset saved state
-		const productValues = getValues() as EcommerceProduct;
+		const productValues = getValues() as Sumdoc;
 
 		const now = new Date();
 		const formattedDateForTitle = now.toISOString().split('T')[0]; // e.g., "2024-03-26"
@@ -399,6 +397,11 @@ function Sumdocs() {
 																	rows={30}
 																	fullWidth
 																	disabled={isSubmitted}
+																	InputProps={{
+																		style: {
+																			lineHeight: '1.5', // Adjust the line spacing as needed
+																		},
+																	}}
 																/>
 															)}
 														/>

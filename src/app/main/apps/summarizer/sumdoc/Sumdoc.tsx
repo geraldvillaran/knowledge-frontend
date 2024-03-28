@@ -33,6 +33,7 @@ import SummaryCardMock from './SummaryCardMock';
 import SummaryCard from './SummaryCard';
 import SumdocEvalChart from './SumdocEvalChart';
 import SumdocModel from './models/SumdocModel';
+import TextField from '@mui/material/TextField';
 /**
  * The Sumdoc page.
  */
@@ -60,7 +61,22 @@ function Sumdoc() {
 	const tabContents = [
 		/* Content for 'Document' */
 
-		<>{sumdoc?.description}</>,
+		<>
+			<Button color="success">Edit</Button>
+			<TextField
+				fullWidth
+				variant="outlined"
+				value={sumdoc?.description}
+				multiline={true}
+				rows={30}
+				InputProps={{
+					style: {
+						lineHeight: '1.5', // Adjust the line spacing as needed
+					},
+				}}
+			// onChange={ } // You need to implement this function
+			/>
+		</>,
 		/* Content for 'Summaries' */
 		<>
 			<div style={{ display: 'flex' }}>

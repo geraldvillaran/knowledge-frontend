@@ -1,14 +1,15 @@
-import apiService from 'app/store/apiService';
+import { apiService as api } from 'app/store/apiService';
 import { showMessage } from '@fuse/core/FuseMessage/fuseMessageSlice';
 import { PartialDeep } from 'type-fest';
+import SumdocModel from './sumdoc/models/SumdocModel';
 
-export const addTagTypes = ['academy_courses', 'academy_course', 'summarizer_categories'] as const;
+export const addTagTypes = ['sumdocs', 'sumdoc', 'academy_courses', 'academy_course', 'summarizer_categories'] as const;
 
 const BASE_URL = 'http://localhost:8000';
 
-const SummarizerApi = apiService
+const SummarizerApi = api
 	.enhanceEndpoints({
-		addTagTypes
+		addTagTypes,
 	})
 	.injectEndpoints({
 		endpoints: (build) => ({
@@ -20,6 +21,14 @@ const SummarizerApi = apiService
 				// query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
 				query: (queryArg) => ({ url: `${BASE_URL}/summarizer/sumdocs/${queryArg.sumdocId}` }),
 				providesTags: ['academy_course']
+			}),
+			createSummarizedDoc: build.mutation<CreateSummarizedDocApiResponse, CreateSummarizedDocApiArg>({
+				query: (newSummarizedDoc) => ({
+					url: `${BASE_URL}/summarizer/sumdocs`,
+					method: 'POST',
+					data: SumdocModel(newSummarizedDoc)
+				}),
+				invalidatesTags: ['sumdocs', 'sumdoc']
 			}),
 			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
 				query: (queryArg) => ({
@@ -55,10 +64,14 @@ const SummarizerApi = apiService
 export default SummarizerApi;
 export type GetSummarizedDocsApiResponse = /** status 200 OK */ Sumdoc[];
 export type GetSummarizedDocsApiArg = void;
+
 export type GetSummarizedDocApiResponse = /** status 200 OK */ Sumdoc;
 export type GetSummarizedDocApiArg = {
 	sumdocId: string;
 };
+
+export type CreateSummarizedDocApiResponse = /** status 200 OK */ Sumdoc;
+export type CreateSummarizedDocApiArg = PartialDeep<Sumdoc>;
 
 export type UpdateSummarizedDocApiResponse = unknown;
 export type UpdateSummarizedDocApiArg = {
@@ -135,5 +148,10 @@ export const {
 	useGetSummarizedDocQuery,
 	useUpdateSummarizedDocMutation,
 	useDeleteSummarizedDocMutation,
-	useGetSumdocCategoriesQuery
+	useGetSumdocCategoriesQuery,
+	useCreateSummarizedDocMutation
 } = SummarizerApi;
+
+export type SummarizerApiType = {
+	[SummarizerApi.reducerPath]: ReturnType<typeof SummarizerApi.reducer>;
+};
