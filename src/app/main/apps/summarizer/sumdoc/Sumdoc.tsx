@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
 import { CardActions, Step, StepContent, StepLabel } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -42,8 +42,15 @@ import { Controller, useFormContext } from 'react-hook-form';
 import {
 	Sumdoc as SumdocApi,
 	useGetSummarizedDocQuery,
-	useUpdateSummarizedDocMutation
+	useUpdateSummarizedDocMutation,
+	useDeleteSummarizedDocMutation
 } from '../SummarizerApi';
+import { padding } from '@mui/system';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
 /**
  * The Sumdoc page.
  */
@@ -74,6 +81,7 @@ function Sumdoc() {
 	);
 
 	const [saveDocument] = useUpdateSummarizedDocMutation();
+	const [removeDocument] = useDeleteSummarizedDocMutation();
 
 	const methods = useForm({
 		mode: 'onChange',
@@ -102,26 +110,15 @@ function Sumdoc() {
 		}
 	}, [sumdoc, reset]);
 
-	// const handleSaveDocument = async () => {
-	// 	setLoading(true);
-	// 	setSaved(false); // Reset saved state
-	// 	const formData = getValues();
-	// 	try {
-	// 		await saveDocument(getValues() as SumdocApi).unwrap();
-	// 		// Successfully saved
-	// 		setSaved(true);
-	// 		setTimeout(() => {
-	// 			// Reset states after showing "Saved" for a brief period
-	// 			setSaved(false);
-	// 			setLoading(false);
-	// 		}, 2000);
-	// 	} catch (error) {
-	// 		console.error('Save product failed:', error);
-	// 		// Handle error appropriately
-	// 		setLoading(false);
-	// 		setLoading(false); // Ensure loading is stopped on error
-	// 	}
-	// }
+	const [openDialog, setOpenDialog] = useState(false);
+
+	const handleDialogOpen = () => {
+		setOpenDialog(true);
+	};
+
+	const handleDialogClose = () => {
+		setOpenDialog(false);
+	};
 
 	const handleSaveDocument = async () => {
 		setLoading(true);
@@ -206,10 +203,53 @@ function Sumdoc() {
 		}
 	};
 
+	const navigate = useNavigate();
+
+	function handleRemoveProduct() {
+		removeDocument(sumdocId);
+		navigate('/apps/summarizer/sumdocs');
+		handleDialogClose();
+	}
+
 	const tabContents = [
 		/* Content for 'Document' */
 
 		<>
+			<Dialog
+				open={openDialog}
+				onClose={handleDialogClose}
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description"
+			>
+				<DialogTitle id="alert-dialog-title">{"Confirm Delete"}</DialogTitle>
+				<DialogContent>
+					<Typography>
+						Are you sure you want to delete this document?
+					</Typography>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleDialogClose} color="primary">
+						Cancel
+					</Button>
+					<Button onClick={handleRemoveProduct} color="secondary" autoFocus>
+						Delete
+					</Button>
+				</DialogActions>
+			</Dialog>
+			<Box display="flex" justifyContent="flex-end" mb={2}> {/* Use Box to manage layout */}
+				{!loading && (
+					<Button
+						className="whitespace-nowrap"
+						variant="contained"
+						color="secondary"
+						onClick={handleDialogOpen}
+						startIcon={<FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>}
+						sx={{ ml: 2 }} // Apply margin-left directly to the Button for spacing
+					>
+						Remove
+					</Button>
+				)}
+			</Box>
 			<FormProvider {...methods}>
 				<Controller
 					name="description"
@@ -232,25 +272,27 @@ function Sumdoc() {
 						/>
 					)}
 				/>
-				<CardActions>
-					<Button
-						className="whitespace-nowrap mx-4"
-						variant="contained"
-						color="secondary"
-						disabled={loading || _.isEmpty(dirtyFields) || !isValid}
-						onClick={handleSaveDocument}
-					>
-						{loading ? (
-							<>
-								<CircularProgress size={14} color="inherit" />
-								&nbsp;Summarizing...
-							</>
-						) : saved ? (
-							"Summarized"
-						) : (
-							"Summarize"
-						)}
-					</Button>
+				<CardActions sx={{ padding: 0 }}>
+					<Box display="flex" justifyContent="flex-end" p={0} mt={2}> {/* Adjusts the margin-top for spacing */}
+						<Button
+							className="whitespace-nowrap"
+							variant="contained"
+							color="secondary"
+							disabled={loading || _.isEmpty(dirtyFields) || !isValid}
+							onClick={handleSaveDocument}
+						>
+							{loading ? (
+								<>
+									<CircularProgress size={14} color="inherit" />
+									&nbsp;Summarizing...
+								</>
+							) : saved ? (
+								"Summarized"
+							) : (
+								"Summarize"
+							)}
+						</Button>
+					</Box>
 				</CardActions>
 			</FormProvider>
 

@@ -47,8 +47,8 @@ const SummarizerApi = api
 				invalidatesTags: ['academy_courses', 'academy_course']
 			}),
 			deleteSummarizedDoc: build.mutation<DeleteSummarizedDocApiResponse, DeleteSummarizedDocApiArg>({
-				query: (queryArg) => ({
-					url: `/mock-api/academy/courses/${queryArg.sumdocId}`,
+				query: (sumdocId) => ({
+					url: `${BASE_URL}/summarizer/sumdocs/${sumdocId}`,
 					method: 'DELETE'
 				}),
 				invalidatesTags: ['academy_courses']
@@ -77,9 +77,7 @@ export type UpdateSummarizedDocApiResponse = unknown;
 export type UpdateSummarizedDocApiArg = PartialDeep<Sumdoc>;// Document
 
 export type DeleteSummarizedDocApiResponse = unknown;
-export type DeleteSummarizedDocApiArg = {
-	sumdocId: string;
-};
+export type DeleteSummarizedDocApiArg = string;
 
 export type GetSumdocCategoriesApiResponse = /** status 200 OK */ Category[];
 export type GetSumdocCategoriesApiArg = void;

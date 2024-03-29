@@ -150,7 +150,7 @@ function Sumdocs() {
 			console.log("Creating new document with text:", mergedData);
 			const data = await createProduct(mergedData).unwrap();
 			// TODO: Why is navigate not working?
-			navigate(`/apps/e-commerce/products/${data.id}`);
+			navigate(`/apps/summarizer/sumdocs`);
 			console.log('Document created successfully:', data);
 			setShowSuccessAlert(true);
 			setShowErrorAlert(false);
@@ -478,7 +478,8 @@ function Sumdocs() {
 				</>
 
 			}
-			scroll={isMobile ? 'normal' : 'normal'}
+			// scroll={isMobile ? 'normal' : 'normal'}
+			scroll={'content'}
 		/>
 	);
 }
