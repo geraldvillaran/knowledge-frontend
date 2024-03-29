@@ -153,7 +153,7 @@ function Sumdoc() {
 			weight: "1kg",
 			extraShippingFee: 5,
 			active: true,
-			title: "Test Document Title",
+			title: sumdoc.title,
 			slug: "test-document-title",
 			duration: 120,
 			totalSteps: 3,

@@ -21,15 +21,6 @@ const navigationConfig: FuseNavItemType[] = [
 		// translate: 'APPLICATIONS',
 		children: [
 			{
-				id: 'apps.e-commerce',
-				title: 'Legal Summarization v1',
-				type: 'item',
-				icon: 'heroicons-outline:document-text',
-				// url: '/apps/academy',
-				url: '/apps/e-commerce',
-				// translate: 'SUMMARIZER'
-			},
-			{
 				id: 'apps.summarizer',
 				title: 'Legal Summarization v3',
 				type: 'item',
@@ -48,6 +39,14 @@ const navigationConfig: FuseNavItemType[] = [
 		icon: 'heroicons-outline:cube',
 		// translate: 'UTILITIES',
 		children: [
+			{
+				id: 'apps.e-commerce',
+				title: 'Prompts',
+				type: 'item',
+				icon: 'heroicons-outline:annotation',
+				url: '/apps/e-commerce',
+				// translate: 'FILE_MANAGER'
+			},
 			{
 				id: 'apps.file-manager',
 				title: 'File Manager',
