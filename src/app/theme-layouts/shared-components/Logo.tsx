@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const Root = styled('div')(({ theme }) => ({
 	'& > .logo-icon': {
@@ -22,14 +23,16 @@ const appLogo = import.meta.env.VITE_REACT_APP_LOGO;
  */
 function Logo() {
 	return (
-		<Root className="flex items-center">
-			<img
-				className="logo-icon h-32 w-32"
-				src={`assets/images/logo/${appLogo}`}
-				alt="logo"
-			/>
-			nowledge Research Inc.
-			{/* <div className="flex space-x-6 px-8 items-center">
+		<Link to="/example" style={{ textDecoration: 'none', color: 'inherit' }}>
+
+			<Root className="flex items-center">
+				<img
+					className="logo-icon h-32 w-32"
+					src={`assets/images/logo/${appLogo}`}
+					alt="logo"
+				/>
+				nowledge Research Inc.
+				{/* <div className="flex space-x-6 px-8 items-center">
 				<div
 					className="badge flex items-end justify-end rounded-4 w-24 h-24 px-3"
 					style={{
@@ -64,7 +67,8 @@ function Logo() {
 					<span className="react-text text-12 font-semibold">React</span>
 				</div>
 			</div> */}
-		</Root>
+			</Root>
+		</Link>
 	);
 }
 

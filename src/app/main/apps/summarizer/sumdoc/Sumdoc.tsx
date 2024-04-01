@@ -221,10 +221,10 @@ function Sumdoc() {
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description"
 			>
-				<DialogTitle id="alert-dialog-title">{"Confirm Delete"}</DialogTitle>
+				<DialogTitle id="alert-dialog-title">{"Confirm Remove"}</DialogTitle>
 				<DialogContent>
 					<Typography>
-						Are you sure you want to delete this document?
+						Are you sure you want to remove this document?
 					</Typography>
 				</DialogContent>
 				<DialogActions>
@@ -232,7 +232,7 @@ function Sumdoc() {
 						Cancel
 					</Button>
 					<Button onClick={handleRemoveProduct} color="secondary" autoFocus>
-						Delete
+						Remove
 					</Button>
 				</DialogActions>
 			</Dialog>
@@ -249,6 +249,25 @@ function Sumdoc() {
 						Remove
 					</Button>
 				)}
+				<Button
+					className="whitespace-nowrap"
+					variant="contained"
+					color="secondary"
+					disabled={loading || _.isEmpty(dirtyFields) || !isValid}
+					onClick={handleSaveDocument}
+					sx={{ ml: 2 }}
+				>
+					{loading ? (
+						<>
+							<CircularProgress size={14} color="inherit" />
+							&nbsp;Summarizing...
+						</>
+					) : saved ? (
+						"Summarized"
+					) : (
+						"Summarize"
+					)}
+				</Button>
 			</Box>
 			<FormProvider {...methods}>
 				<Controller
@@ -273,26 +292,7 @@ function Sumdoc() {
 					)}
 				/>
 				<CardActions sx={{ padding: 0 }}>
-					<Box display="flex" justifyContent="flex-end" p={0} mt={2}> {/* Adjusts the margin-top for spacing */}
-						<Button
-							className="whitespace-nowrap"
-							variant="contained"
-							color="secondary"
-							disabled={loading || _.isEmpty(dirtyFields) || !isValid}
-							onClick={handleSaveDocument}
-						>
-							{loading ? (
-								<>
-									<CircularProgress size={14} color="inherit" />
-									&nbsp;Summarizing...
-								</>
-							) : saved ? (
-								"Summarized"
-							) : (
-								"Summarize"
-							)}
-						</Button>
-					</Box>
+
 				</CardActions>
 			</FormProvider>
 

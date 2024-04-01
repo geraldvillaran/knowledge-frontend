@@ -22,12 +22,12 @@ function Example() {
 		<Root
 			header={
 				<div className="p-24">
-					<h4>{t('TITLE')}</h4>
+					<h4>Knowledge Research Inc.</h4>
 				</div>
 			}
 			content={
 				<div className="p-24">
-					<h4>Content</h4>
+					<h4></h4>
 					<br />
 					<DemoContent />
 				</div>

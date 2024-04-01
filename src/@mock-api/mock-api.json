@@ -12580,7 +12580,7 @@
           {
             "id": "f65d517a-6f69-4c88-81f5-416f47405ce1",
             "type": "section",
-            "title": "Company internal application v2.0.0",
+            "title": "Legal Summarization",
             "notes": "Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit.",
             "completed": false,
             "dueDate": "2017-10-18T13:03:37.943Z",
@@ -12607,8 +12607,8 @@
           {
             "id": "0fcece82-1691-4b98-a9b9-b63218f9deef",
             "type": "task",
-            "title": "Create the landing/marketing page and host it on the beta channel",
-            "notes": "Et in lorem qui ipsum deserunt duis exercitation lorem elit qui qui ipsum tempor nulla velit aliquip enim consequat incididunt pariatur duis excepteur elit irure nulla ipsum dolor dolore est.\n\nAute deserunt nostrud id non ipsum do adipisicing laboris in minim officia magna elit minim mollit elit velit veniam lorem pariatur veniam sit excepteur irure commodo excepteur duis quis in.",
+            "title": "Wills and Estates Summarization (March-29)",
+            "notes": "You are an attorney who has been given part of a document enclosed below in <document> tags.\n\n    This is part of a document that is a  will or trust document, outlining the distribution of life insurance proceeds to the author's children, john and sally washington. it specifies different distribution methods depending on whether the children are over or under the age of 21 at the time of the author's death.\n    <document>\n    {document}\n    </document>\n\n    Follow these instructions:\n\n    1. Generate a highly detailed summary of all the important information in <document>. Be sure to emphasize and include details that could be of importance to a lawyer.\n\n    2. Do not omit any important details or facts, include all important details such as names of persons, their title or relation to the matter, and any important dates or events mentioned in the document. Avoid vague statements, opting to provide a deep examination of the material in <document>.\n\n    3. If parts of <document> are sub-divided into sections (and possible subsections), utilize prefixing and indentation to conform the format of the summary to a hierarchical outline.\n\n    4. If referencing acronyms within your response, display the full title associated with the acronym once, then use the acronym for further repetitions.\n\n    5. For each item within your summary, determine if there is any is missing information in your summary. Include all potential missing information in addition to the information already in your summary.\n\n        Missing information can include:\n            dates, times, durations\n            length of passages\n            locations\n            cases\n            quote context,\n            relevant exchanges between individuals\n            parties of contracts\n            agreements within contracts\n            proper nouns (people, groups, locations)\n            terminology and systems (ex: a method for ranking, a set of criteria)\n            terms, conditions, requirements\n    6. It is better to be over-inclusive rather than under-inclusive. If you are unsure if you should include something which may or may not be important, always err on the side of caution and include the information.\n\n\n    Give your answer in the following format:\n\n    - Key point discussion...\n    - Key point discussion...\n    - Key point discussion...\n    ...",
             "completed": false,
             "dueDate": null,
             "priority": 0,
@@ -12620,8 +12620,8 @@
           {
             "id": "2e6971cd-49d5-49f1-8cbd-fba5c71e6062",
             "type": "task",
-            "title": "Move dependency system to Yarn for easier package management",
-            "notes": "Id fugiat et cupidatat magna nulla nulla eu cillum officia nostrud dolore in veniam ullamco nulla ex duis est enim nisi aute ipsum velit et laboris est pariatur est culpa.\n\nCulpa sunt ipsum esse quis excepteur enim culpa est voluptate reprehenderit consequat duis officia irure voluptate veniam dolore fugiat dolor est amet nostrud non velit irure do voluptate id sit.",
+            "title": "Merger Summarization",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2019-05-24T03:55:38.969Z",
             "priority": 0,
@@ -12648,8 +12648,8 @@
           {
             "id": "974f93b8-336f-4eec-b011-9ddb412ee828",
             "type": "task",
-            "title": "Fix permission issues that the 0.0.7-alpha.2 has introduced",
-            "notes": "Excepteur deserunt tempor do lorem elit id magna pariatur irure ullamco elit dolor consectetur ad officia fugiat incididunt do elit aute esse eu voluptate adipisicing incididunt ea dolor aliqua dolor.\n\nConsequat est quis deserunt voluptate ipsum incididunt laboris occaecat irure laborum voluptate non sit labore voluptate sunt id sint ut laboris aute cupidatat occaecat eiusmod non magna aliquip deserunt nisi.",
+            "title": "Hydropower Legal Assessment Summary",
+            "notes": "You are an environmental lawyer reviewing the impact assessment for a new dam project proposed by HydroPower Inc. The assessment document details the project's expected environmental impacts, mitigation strategies, and compliance with local and international environmental laws.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Summarize the key findings of the environmental impact assessment, paying close attention to any significant adverse effects on local ecosystems or wildlife.\n\n2. Critically evaluate the proposed mitigation strategies for their feasibility and potential effectiveness in preserving environmental integrity.\n\n3. Discuss the project's compliance with environmental regulations, including any potential challenges in meeting these requirements.\n\n4. Identify any gaps in the assessment, such as overlooked environmental impacts, insufficient data, or unrealistic mitigation measures.\n\n5. Provide recommendations for additional studies or measures that could enhance the project's environmental stewardship.\n\n6. Consider any missing information that could affect your evaluation, like historical environmental data, long-term climate change impacts, or community responses.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": null,
             "priority": 2,
@@ -12684,8 +12684,8 @@
           {
             "id": "5d877fc7-b881-4527-a6aa-d39d642feb23",
             "type": "task",
-            "title": "Start Twitter promotions using the company Twitter account",
-            "notes": "Labore mollit in aliqua exercitation aliquip elit nisi nisi voluptate reprehenderit et dolor incididunt cupidatat ullamco nulla consequat voluptate adipisicing dolor qui magna sint aute do excepteur in aliqua consectetur.\n\nElit laborum non duis irure ad ullamco aliqua enim exercitation quis fugiat aute esse esse magna et ad cupidatat voluptate sint nulla nulla lorem et enim deserunt proident deserunt consectetur.",
+            "title": "Estate Summarization v2",
+            "notes": "You are a real estate attorney tasked with reviewing a development proposal for a new mixed-use complex by UrbanDevelop LLC. The proposal document outlines the project scope, zoning compliance, anticipated community benefits, and potential legal challenges.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Analyze the legal feasibility of the proposed development, focusing on zoning laws, land use regulations, and potential legal obstacles.\n\n2. Evaluate the projected community benefits, such as job creation, housing availability, and public spaces. Discuss their potential impact on community support or opposition.\n\n3. Review the strategies outlined for addressing potential legal challenges, including those related to environmental concerns, community opposition, and regulatory hurdles.\n\n4. Highlight any areas where additional information or clarification is needed, particularly regarding compliance with local ordinances, impact assessments, or community engagement strategies.\n\n5. Offer your legal opinion on the proposal's strengths and weaknesses, providing recommendations for improving its viability and compliance.\n\n6. Point out any missing critical information that could influence the proposal's legal assessment, such as detailed environmental impact studies, traffic impact analyses, or public hearing outcomes.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": null,
             "priority": 1,
@@ -12710,8 +12710,8 @@
           {
             "id": "3d1c26c5-1e5e-4eb6-8006-ed6037ed9aca",
             "type": "task",
-            "title": "Add more error pages - 401, 301, 303, 500 etc.",
-            "notes": "Sunt mollit irure dolor aliquip sit veniam amet ut sunt dolore cillum sint pariatur qui irure proident velit non excepteur quis ut et quis velit aliqua ea sunt cillum sit.\n\nReprehenderit est culpa ut incididunt sit dolore mollit in occaecat velit culpa consequat reprehenderit ex lorem cupidatat proident reprehenderit ad eu sunt sit ut sit culpa ea reprehenderit aliquip est.",
+            "title": "Sample Prompt 5",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2018-09-29T19:30:45.325Z",
             "priority": 1,
@@ -12725,9 +12725,9 @@
           {
             "id": "11bd2b9a-85b4-41c9-832c-bd600dfa3a52",
             "type": "task",
-            "title": "Clear the caches before the production build",
-            "notes": "Sint mollit consectetur voluptate fugiat sunt ipsum adipisicing labore exercitation eiusmod enim excepteur enim proident velit sint magna commodo dolor ex ipsum sit nisi deserunt labore eu irure amet ea.\n\nOccaecat ut velit et sint pariatur laboris voluptate duis aliqua aliqua exercitation et duis duis eu laboris excepteur occaecat quis esse enim ex dolore commodo fugiat excepteur adipisicing in fugiat.",
-            "completed": true,
+            "title": "Sample Prompt 4",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": false,
             "dueDate": "2017-10-12T12:03:55.559Z",
             "priority": 2,
             "tags": [],
@@ -12744,8 +12744,8 @@
           {
             "id": "f55c023a-785e-4f0f-b5b7-47da75224deb",
             "type": "task",
-            "title": "Examine the package loss rates that the 0.0.7-alpha.1 has introduced",
-            "notes": "In exercitation sunt ad anim commodo sunt do in sunt est officia amet ex ullamco do nisi consectetur lorem proident lorem adipisicing incididunt consequat fugiat voluptate sint est anim officia.\n\nVelit sint aliquip elit culpa amet eu mollit veniam esse deserunt ex occaecat quis lorem minim occaecat culpa esse veniam enim duis excepteur ipsum esse ut ut velit cillum adipisicing.",
+            "title": "Sample Prompt 3",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2022-06-05T19:41:12.501Z",
             "priority": 2,
@@ -12778,8 +12778,8 @@
           {
             "id": "c577a67d-357a-4b88-96e8-a0ee1fe9162e",
             "type": "task",
-            "title": "Start Google ads using the company coupons",
-            "notes": "Ad adipisicing duis consequat magna sunt consequat aliqua eiusmod qui et nostrud voluptate sit enim reprehenderit anim exercitation ipsum ipsum anim ipsum laboris aliqua ex lorem aute officia voluptate culpa.\n\nNostrud anim ex pariatur ipsum et nostrud esse veniam ipsum ipsum irure velit ad quis irure tempor nulla amet aute id esse reprehenderit ea consequat consequat ea minim magna magna.",
+            "title": "Sample Prompt 3",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2020-04-06T02:57:58.506Z",
             "priority": 1,
@@ -12805,8 +12805,8 @@
           {
             "id": "1a680c29-7ece-4a80-9709-277ad4da8b4b",
             "type": "section",
-            "title": "Developer API for the payment system",
-            "notes": "Magna laborum et amet magna fugiat officia deserunt in exercitation aliquip nulla magna velit ea labore quis deserunt ipsum occaecat id id consequat non eiusmod mollit est voluptate ea ex.\n\nReprehenderit mollit ut excepteur minim veniam fugiat enim id pariatur amet elit nostrud occaecat pariatur et esse aliquip irure quis officia reprehenderit voluptate voluptate est et voluptate sint esse dolor.",
+            "title": "Sample Prompt Section",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2020-02-08T22:42:35.937Z",
             "priority": 2,
@@ -12821,8 +12821,8 @@
           {
             "id": "c49c2216-8bdb-4df0-be25-d5ea1dbb5688",
             "type": "task",
-            "title": "Re-think the current API restrictions to loosen them a bit",
-            "notes": "Adipisicing laboris ipsum fugiat et cupidatat aute esse ad labore et est cillum ipsum sunt duis do veniam minim officia deserunt in eiusmod eu duis dolore excepteur consectetur id elit.\n\nAnim excepteur occaecat laborum sunt in elit quis sit duis adipisicing laboris anim laborum et pariatur elit qui consectetur laborum reprehenderit occaecat nostrud pariatur aliqua elit nisi commodo eu excepteur.",
+            "title": "Sample Prompt 2",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2019-08-10T06:18:17.785Z",
             "priority": 1,
@@ -12842,8 +12842,8 @@
           {
             "id": "3ef176fa-6cba-4536-9f43-540c686a4faa",
             "type": "task",
-            "title": "Pre-flight checks causes random crashes on logging service",
-            "notes": "Culpa duis nostrud qui velit sint magna officia fugiat ipsum eiusmod enim laborum pariatur anim culpa elit ipsum lorem pariatur exercitation laborum do labore cillum exercitation nisi reprehenderit exercitation quis.\n\nMollit aute dolor non elit et incididunt eiusmod non in commodo occaecat id in excepteur aliqua ea anim pariatur sint elit voluptate dolor eu non laborum laboris voluptate qui duis.",
+            "title": "Sample Prompt 1",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": false,
             "dueDate": "2024-08-23T14:33:06.227Z",
             "priority": 2,
@@ -12883,9 +12883,9 @@
           {
             "id": "7bc6b7b4-7ad8-4cbe-af36-7301642d35fb",
             "type": "task",
-            "title": "Increase the timeout amount to allow more retries on client side",
-            "notes": "Ea proident dolor tempor dolore incididunt velit incididunt ullamco quis proident consectetur magna excepteur cillum officia ex do aliqua reprehenderit est esse officia labore dolore aute laboris eu commodo aute.\n\nOfficia quis id ipsum adipisicing ipsum eu exercitation cillum ex elit pariatur adipisicing ullamco ullamco nulla dolore magna aliqua reprehenderit eu laborum voluptate reprehenderit non eiusmod deserunt velit magna do.",
-            "completed": true,
+            "title": "Analyst Prompt 5",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": false,
             "dueDate": "2017-08-16T12:56:48.039Z",
             "priority": 1,
             "tags": [
@@ -12926,8 +12926,8 @@
           {
             "id": "56c9ed66-a1d2-4803-a160-fba29b826cb4",
             "type": "task",
-            "title": "Create the landing/marketing page and host it on the beta channel",
-            "notes": "Elit cillum incididunt enim cupidatat ex elit cillum aute dolor consectetur proident non minim eu est deserunt proident mollit ullamco laborum anim ea labore anim ex enim ullamco consectetur enim.\n\nEx magna consectetur esse enim consequat non aliqua nulla labore mollit sit quis ex fugiat commodo eu cupidatat irure incididunt consequat enim ut deserunt consequat elit consequat sint adipisicing sunt.",
+            "title": "Analyst Prompt 4",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2023-09-15T15:12:36.910Z",
             "priority": 0,
@@ -12967,8 +12967,8 @@
           {
             "id": "21c1b662-33c8-44d7-9530-91896afeeac7",
             "type": "task",
-            "title": "Move dependency system to Yarn for easier package management",
-            "notes": "Duis culpa ut veniam voluptate consequat proident magna eiusmod id est magna culpa nulla enim culpa mollit velit lorem mollit ut minim dolore in tempor reprehenderit cillum occaecat proident ea.\n\nVeniam fugiat ea duis qui et eu eiusmod voluptate id cillum eiusmod eu reprehenderit minim reprehenderit nisi cillum nostrud duis eu magna minim sunt voluptate eu pariatur nulla ullamco elit.",
+            "title": "Analyst Prompt 3",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2020-08-08T16:32:24.768Z",
             "priority": 1,
@@ -13001,9 +13001,9 @@
           {
             "id": "5fa52c90-82be-41ae-96ec-5fc67cf054a4",
             "type": "task",
-            "title": "Fix permission issues that the 0.0.7-alpha.2 has introduced",
-            "notes": "Mollit nostrud ea irure ex ipsum in cupidatat irure sit officia reprehenderit adipisicing et occaecat cupidatat exercitation mollit esse in excepteur qui elit exercitation velit fugiat exercitation est officia excepteur.\n\nQuis esse voluptate laborum non veniam duis est fugiat tempor culpa minim velit minim ut duis qui officia consectetur ex nostrud ut elit elit nulla in consectetur voluptate aliqua aliqua.",
-            "completed": false,
+            "title": "Analyst Prompt 2",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": true,
             "dueDate": "2019-10-13T08:25:17.064Z",
             "priority": 0,
             "tags": [
@@ -13032,8 +13032,8 @@
           {
             "id": "b6d8909f-f36d-4885-8848-46b8230d4476",
             "type": "task",
-            "title": "Start Twitter promotions using the company Twitter account",
-            "notes": "Laboris ea nisi commodo nulla cillum consequat consectetur nisi velit adipisicing minim nulla culpa amet quis sit duis id id aliqua aute exercitation non reprehenderit aliquip enim eiusmod eu irure.\n\nNon irure consectetur sunt cillum do adipisicing excepteur labore proident ut officia dolor fugiat velit sint consectetur cillum qui amet enim anim mollit laboris consectetur non do laboris lorem aliqua.",
+            "title": "Analyst Prompt 1",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2020-02-03T05:39:30.880Z",
             "priority": 1,
@@ -13047,8 +13047,8 @@
           {
             "id": "9496235d-4d0c-430b-817e-1cba96404f95",
             "type": "task",
-            "title": "Add more error pages - 401, 301, 303, 500 etc.",
-            "notes": "Ullamco eiusmod do pariatur pariatur consectetur commodo proident ex voluptate ullamco culpa commodo deserunt pariatur incididunt nisi magna dolor est minim eu ex voluptate deserunt labore id magna excepteur et.\n\nReprehenderit dolore pariatur exercitation ad non fugiat quis proident fugiat incididunt ea magna pariatur et exercitation tempor cillum eu consequat adipisicing est laborum sit cillum ea fugiat mollit cupidatat est.",
+            "title": "Researcher Prompt 5",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2020-03-09T19:42:06.383Z",
             "priority": 1,
@@ -13076,8 +13076,8 @@
           {
             "id": "7fde17e6-4ac1-47dd-a363-2f4f14dcf76a",
             "type": "task",
-            "title": "Clear the caches before the production build",
-            "notes": "Qui quis nulla excepteur voluptate elit culpa occaecat id ex do adipisicing est mollit id anim nisi irure amet officia ut sint aliquip dolore labore cupidatat magna laborum esse ea.\n\nEnim magna duis sit incididunt amet anim et nostrud laborum eiusmod et ea fugiat aliquip velit sit fugiat consectetur ipsum anim do enim excepteur cupidatat consequat sunt irure tempor ut.",
+            "title": "Researcher Prompt 5",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2022-08-24T03:03:09.899Z",
             "priority": 1,
@@ -13110,9 +13110,9 @@
           {
             "id": "90a3ed58-e13b-40cf-9219-f933bf9c9b8f",
             "type": "task",
-            "title": "Examine the package loss rates that the 0.0.7-alpha.1 has introduced",
-            "notes": "Consequat consectetur commodo deserunt sunt aliquip deserunt ex tempor esse nostrud sit dolore anim nostrud nulla dolore veniam minim laboris non dolor veniam lorem veniam deserunt laborum aute amet irure.\n\nEiusmod officia veniam reprehenderit ea aliquip velit anim aute minim aute nisi tempor qui sunt deserunt voluptate velit elit ut adipisicing ipsum et excepteur ipsum eu ullamco nisi esse dolor.",
-            "completed": false,
+            "title": "Researcher Prompt 4",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": true,
             "dueDate": "2023-10-04T15:48:16.507Z",
             "priority": 1,
             "tags": [
@@ -13136,8 +13136,8 @@
           {
             "id": "81ac908c-35a2-4705-8d75-539863c35c09",
             "type": "task",
-            "title": "Start Google ads using the company coupons",
-            "notes": "Sit occaecat sint nulla in esse dolor occaecat in ea sit irure magna magna veniam fugiat consequat exercitation ipsum ex officia velit consectetur consequat voluptate lorem eu proident lorem incididunt.\n\nExcepteur exercitation et qui labore nisi eu voluptate ipsum deserunt deserunt eu est minim dolor ad proident nulla reprehenderit culpa minim voluptate dolor nostrud dolor anim labore aliqua officia nostrud.",
+            "title": "Researcher Prompt 3",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2024-02-01T10:02:52.745Z",
             "priority": 1,
@@ -13157,8 +13157,8 @@
           {
             "id": "153376ed-691f-4dfd-ae99-e204a49edc44",
             "type": "task",
-            "title": "Re-think the current API restrictions to loosen them a bit",
-            "notes": "Duis sint velit incididunt exercitation eiusmod nisi sunt ex est fugiat ad cupidatat sunt nisi elit do duis amet voluptate ipsum aliquip lorem aliqua sint esse in magna irure officia.\n\nNon eu ex elit ut est voluptate tempor amet ut officia in duis deserunt cillum labore do culpa id dolore magna anim consectetur qui consectetur fugiat labore mollit magna irure.",
+            "title": "Researcher Prompt 2",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2022-02-22T17:42:00.257Z",
             "priority": 2,
@@ -13170,7 +13170,7 @@
           {
             "id": "1ebde495-1bcd-4e8f-b6f6-cf63b521ad06",
             "type": "section",
-            "title": "Marketing and promotions for the mobile app",
+            "title": "March 2024 Evaluated Prompts",
             "notes": "Aute commodo reprehenderit cupidatat duis nulla mollit sint cupidatat elit adipisicing fugiat sunt cupidatat amet proident fugiat aute adipisicing et non minim occaecat ea esse consectetur aute culpa exercitation incididunt.\n\nEnim et lorem anim dolor excepteur qui tempor cupidatat do proident adipisicing esse incididunt mollit quis irure amet ad officia culpa minim cillum veniam voluptate lorem exercitation sunt cillum dolor.",
             "completed": false,
             "dueDate": "2018-08-04T19:32:53.652Z",
@@ -13194,8 +13194,8 @@
           {
             "id": "4e7ce72f-863a-451f-9160-cbd4fbbc4c3d",
             "type": "task",
-            "title": "Pre-flight checks causes random crashes on logging service",
-            "notes": "Exercitation sit eiusmod enim officia exercitation eiusmod sunt eiusmod excepteur ad commodo eiusmod qui proident quis aliquip excepteur sit cillum occaecat non dolore sit in labore ut duis esse duis.\n\nConsequat sunt voluptate consectetur dolor laborum enim nostrud deserunt incididunt sint veniam laboris sunt amet velit anim duis aliqua sunt aliqua aute qui nisi mollit qui irure ullamco aliquip laborum.",
+            "title": "Researcher Prompt 1",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2020-09-29T02:25:14.111Z",
             "priority": 1,
@@ -13228,8 +13228,8 @@
           {
             "id": "0795a74f-7a84-4edf-8d66-296cdef70003",
             "type": "task",
-            "title": "Increase the timeout amount to allow more retries on client side",
-            "notes": "Minim commodo cillum do id qui irure aliqua laboris excepteur laboris magna enim est lorem consectetur tempor laboris proident proident eu irure dolor eiusmod in officia lorem quis laborum ullamco.\n\nQui excepteur ex sit esse dolore deserunt ullamco occaecat laboris fugiat cupidatat excepteur laboris amet dolore enim velit ipsum velit sint cupidatat consectetur cupidatat deserunt sit eu do ullamco quis.",
+            "title": "Enhanced Summarization 5",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2019-03-09T02:34:29.592Z",
             "priority": 2,
@@ -13265,8 +13265,8 @@
           {
             "id": "05532574-c102-4228-89a8-55fff32ec6fc",
             "type": "task",
-            "title": "Create the landing/marketing page and host it on the beta channel",
-            "notes": "Reprehenderit anim consectetur anim dolor magna consequat excepteur tempor enim duis magna proident ullamco aute voluptate elit laborum mollit labore id ex lorem est mollit do qui ex labore nulla.\n\nUt proident elit proident adipisicing elit fugiat ex ullamco dolore excepteur excepteur labore laborum sunt ipsum proident magna ex voluptate laborum voluptate sint proident eu reprehenderit non excepteur quis eiusmod.",
+            "title": "Enhanced Summarization 4",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2023-12-08T23:20:50.910Z",
             "priority": 2,
@@ -13280,9 +13280,9 @@
           {
             "id": "b3917466-aa51-4293-9d5b-120b0ce6635c",
             "type": "task",
-            "title": "Move dependency system to Yarn for easier package management",
-            "notes": "Ipsum officia mollit qui laboris sunt amet aliquip cupidatat minim non elit commodo eiusmod labore mollit pariatur aute reprehenderit ullamco occaecat enim pariatur aute amet occaecat incididunt irure ad ut.\n\nIncididunt cupidatat pariatur magna sint sit culpa ad cupidatat cillum exercitation consequat minim pariatur consectetur aliqua non adipisicing magna ad nulla ea do est nostrud eu aute id occaecat ut.",
-            "completed": false,
+            "title": "Enhanced Summarization 3",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": true,
             "dueDate": "2018-01-14T09:58:38.444Z",
             "priority": 1,
             "tags": [],
@@ -13319,8 +13319,8 @@
           {
             "id": "2f2fb472-24d4-4a00-aa80-d513fa6c059c",
             "type": "task",
-            "title": "Fix permission issues that the 0.0.7-alpha.2 has introduced",
-            "notes": "Dolor cupidatat do qui in tempor dolor magna magna ut dolor est aute veniam consectetur enim sunt sunt duis magna magna aliquip id reprehenderit dolor in veniam ullamco incididunt occaecat.\n\nId duis pariatur anim cillum est sint non veniam voluptate deserunt anim nostrud duis voluptate occaecat elit ut veniam voluptate do qui est ad velit irure sint lorem ullamco aliqua.",
+            "title": "Enhanced Summarization 2",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
             "completed": true,
             "dueDate": "2020-06-08T00:23:24.051Z",
             "priority": 1,
@@ -13355,9 +13355,9 @@
           {
             "id": "2fffd148-7644-466d-8737-7dde88c54154",
             "type": "task",
-            "title": "Start Twitter promotions using the company Twitter account",
-            "notes": "Velit commodo pariatur ullamco elit sunt dolor quis irure amet tempor laboris labore tempor nisi consectetur ea proident dolore culpa nostrud esse amet commodo do esse laboris laboris in magna.\n\nAute officia labore minim laborum irure cupidatat occaecat laborum ex labore ipsum aliqua cillum do exercitation esse et veniam excepteur mollit incididunt ut qui irure culpa qui deserunt nostrud tempor.",
-            "completed": false,
+            "title": "Enhanced Summarization 1",
+            "notes": "You are a corporate attorney analyzing the merger agreement between two leading tech companies, TechA and TechB. The document outlines the terms, conditions, and the planned timeline for the merger.\n\n<document>\n{document}\n</document>\n\nFollow these instructions:\n\n1. Provide a detailed analysis of the merger agreement, highlighting any potential legal issues or concerns that could arise.\n\n2. Identify and discuss any clauses related to intellectual property (IP) rights and how they may affect the merger's success.\n\n3. Evaluate the provisions regarding employee retention, compensation, and potential layoffs. Include considerations on how these may impact corporate culture and morale.\n\n4. Assess any regulatory compliance issues, especially those related to antitrust laws, and suggest how these concerns could be mitigated.\n\n5. Review and comment on the dispute resolution mechanism specified in the agreement. Discuss its effectiveness and fairness to both parties.\n\n6. Include potential missing information that could influence your legal advice, such as specific regulatory approvals needed, financial health of both companies, or undisclosed liabilities.\n\nGive your answer in the following format:\n\n- Key point discussion...\n- Key point discussion...\n- Key point discussion...\n...",
+            "completed": true,
             "dueDate": "2024-01-27T11:17:52.198Z",
             "priority": 1,
             "tags": [
@@ -13372,32 +13372,6 @@
               }
             ],
             "order": 28
-          },
-          {
-            "id": "24a1034e-b4d6-4a86-a1ea-90516e87e810",
-            "type": "task",
-            "title": "Add more error pages - 401, 301, 303, 500 etc.",
-            "notes": "Exercitation eu in officia lorem commodo pariatur pariatur nisi consectetur qui elit in aliquip et ullamco duis nostrud aute laborum laborum est dolor non qui amet deserunt ex et aliquip.\n\nProident consectetur eu amet minim labore anim ad non aute duis eiusmod sit ad elit magna do aliquip aliqua laborum dolor laboris ea irure duis mollit fugiat tempor eu est.",
-            "completed": false,
-            "dueDate": "2024-06-24T04:38:28.087Z",
-            "priority": 1,
-            "tags": [
-              "51483dd3-cb98-4400-9128-4bd66b455807"
-            ],
-            "assignedTo": "7f5db993-ec36-412f-9db3-16d076a98807",
-            "subTasks": [
-              {
-                "id": "75f55d75-c835-4a6c-a2ae-7a42ae3a7c9d",
-                "title": "Et laboris quis lorem est laboris",
-                "completed": true
-              },
-              {
-                "id": "c7c91a52-b060-45af-b1b1-a4cff26bf11e",
-                "title": "Reprehenderit elit dolore exercitation pariatur",
-                "completed": true
-              }
-            ],
-            "order": 29
           }
         ]
       },

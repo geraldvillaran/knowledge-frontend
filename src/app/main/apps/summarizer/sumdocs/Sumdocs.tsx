@@ -34,6 +34,7 @@ import DialogActions from '@mui/material/DialogActions';
 import SumdocCard from './SumdocCard';
 import { Sumdoc, useGetSumdocCategoriesQuery, useGetSummarizedDocsQuery, useCreateSummarizedDocMutation } from '../SummarizerApi';
 
+
 import CircularProgress from '@mui/material/CircularProgress';
 /**
  * Form Validation Schema
@@ -111,13 +112,13 @@ function Sumdocs() {
 		setLoading(true); // Start loading
 		setSaved(false); // Reset saved state
 		const productValues = getValues() as Sumdoc;
-
+		const titleFromDescription = productValues.description.substring(0, 50);
 		const now = new Date();
 		const formattedDateForTitle = now.toISOString().split('T')[0]; // e.g., "2024-03-26"
 		const updatedAt = now.toISOString();
 		const newFieldValues = {
 			name: `New Document ${formattedDateForTitle}`,
-			title: `New Document ${formattedDateForTitle}`,
+			title: titleFromDescription,
 			slug: 'new-document',
 			category: 'contracts',
 			duration: 30,
@@ -150,7 +151,6 @@ function Sumdocs() {
 			console.log("Creating new document with text:", mergedData);
 			const data = await createProduct(mergedData).unwrap();
 			// TODO: Why is navigate not working?
-			navigate(`/apps/summarizer/sumdocs`);
 			console.log('Document created successfully:', data);
 			setShowSuccessAlert(true);
 			setShowErrorAlert(false);
@@ -186,6 +186,8 @@ function Sumdocs() {
 
 		// Close the dialog
 		setOpen(false);
+
+		window.location.reload();
 	};
 
 	useEffect(() => {
@@ -364,6 +366,20 @@ function Sumdocs() {
 											onClose={handleClose}
 										>
 											<DialogTitle>New Document</DialogTitle>
+											<FormControl sx={{ mx: 2, minWidth: 10 }} size="small">
+												<InputLabel id="demo-select-small-label">Prompt</InputLabel>
+												<Select
+													labelId="demo-select-small-label"
+													id="demo-select-small"
+													label="Age"
+												>
+													<MenuItem value={10}>Wills and Estates Summarization (March-29)</MenuItem>
+													<MenuItem value={20}>Hydropower Legal Assessment Summary</MenuItem>
+													<MenuItem value={30}>Estate Summarization v2</MenuItem>
+													<MenuItem value={30}>Sample Prompt 5</MenuItem>
+													<MenuItem value={30}>Sample Prompt 4</MenuItem>
+												</Select>
+											</FormControl>
 											<FormProvider {...methods}>
 												<form onSubmit={methods.handleSubmit(handleCreateDocument)}>
 													<DialogContent>
@@ -419,9 +435,9 @@ function Sumdocs() {
 																{loading ? (
 																	<>
 																		<CircularProgress size={14} color="inherit" />
-																		&nbsp;Summarizing...
+																		&nbsp;Running...
 																	</>
-																) : "Summarize"}
+																) : "Run"}
 															</Button>
 														)}
 													</DialogActions>

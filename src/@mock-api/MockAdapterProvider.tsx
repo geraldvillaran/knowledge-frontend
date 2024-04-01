@@ -9,6 +9,8 @@ import { academyApiMocks } from './api/academy-api';
 import { summarizerApiMocks } from './api/summarizer-api';
 import { eCommerceApiMocks } from './api/ecommerce-api';
 import { fileManagerApiMocks } from './api/file-manager-api';
+import { tasksApiMocks } from './api/tasks-api';
+import { scrumboardApiMocks } from './api/scrumboard-api';
 
 const mockAdapterOptions = {
 	delayResponse: 0
@@ -35,7 +37,10 @@ function MockAdapterProvider(props: MockAdapterProviderProps) {
 				academyApiMocks,
 				summarizerApiMocks,
 				eCommerceApiMocks,
-				fileManagerApiMocks
+				fileManagerApiMocks,
+				tasksApiMocks,
+				scrumboardApiMocks
+
 			].forEach((mockSetup) => {
 				mockSetup(mock);
 			});

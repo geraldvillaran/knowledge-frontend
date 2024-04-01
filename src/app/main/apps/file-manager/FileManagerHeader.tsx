@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link } from 'react-router-dom';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { FileManagerItem, FileManagerPath } from './FileManagerApi';
 
 type FileManagerHeaderProps = {

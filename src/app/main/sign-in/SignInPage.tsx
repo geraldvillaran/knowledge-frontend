@@ -220,7 +220,7 @@ function SignInPage() {
 				<div className="relative z-10 w-full max-w-2xl">
 					<div className="text-7xl font-bold leading-none text-gray-100">
 						<div>Welcome to</div>
-						<div>our community</div>
+						<div>our platform</div>
 					</div>
 					<div className="mt-24 text-lg leading-6 tracking-tight text-gray-400">
 						Our platform empowers legal professionals to utilize AI feature-rich modules. Join us and start building your AI-powered legal applications today.
