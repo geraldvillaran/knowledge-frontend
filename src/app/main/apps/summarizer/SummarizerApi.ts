@@ -14,17 +14,17 @@ const SummarizerApi = api
 	.injectEndpoints({
 		endpoints: (build) => ({
 			getSummarizedDocs: build.query<GetSummarizedDocsApiResponse, GetSummarizedDocsApiArg>({
-				query: () => ({ url: `${BASE_URL}/summarizer/sumdocs` }),
+				query: () => ({ url: `${BASE_URL}/api/v1/summaries/documents` }),
 				providesTags: ['academy_courses']
 			}),
 			getSummarizedDoc: build.query<GetSummarizedDocApiResponse, GetSummarizedDocApiArg>({
 				// query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.sumdocId}` }),
-				query: (queryArg) => ({ url: `${BASE_URL}/summarizer/sumdocs/${queryArg.sumdocId}` }),
+				query: (queryArg) => ({ url: `${BASE_URL}/api/v1/summaries/documents/${queryArg.sumdocId}` }),
 				providesTags: ['academy_course']
 			}),
 			createSummarizedDoc: build.mutation<CreateSummarizedDocApiResponse, CreateSummarizedDocApiArg>({
 				query: (newSummarizedDoc) => ({
-					url: `${BASE_URL}/summarizer/sumdocs`,
+					url: `${BASE_URL}/api/v1/summaries/documents`,
 					method: 'POST',
 					data: SumdocModel(newSummarizedDoc)
 				}),
@@ -32,7 +32,7 @@ const SummarizerApi = api
 			}),
 			updateSummarizedDoc: build.mutation<UpdateSummarizedDocApiResponse, UpdateSummarizedDocApiArg>({
 				query: (sumdoc) => ({
-					url: `${BASE_URL}/summarizer/sumdocs/${sumdoc.id}`,
+					url: `${BASE_URL}/api/v1/summaries/documents/${sumdoc.id}`,
 					method: 'PUT',
 					data: sumdoc
 				}),
@@ -48,7 +48,7 @@ const SummarizerApi = api
 			}),
 			deleteSummarizedDoc: build.mutation<DeleteSummarizedDocApiResponse, DeleteSummarizedDocApiArg>({
 				query: (sumdocId) => ({
-					url: `${BASE_URL}/summarizer/sumdocs/${sumdocId}`,
+					url: `${BASE_URL}/api/v1/summaries/documents/${sumdocId}`,
 					method: 'DELETE'
 				}),
 				invalidatesTags: ['academy_courses']
